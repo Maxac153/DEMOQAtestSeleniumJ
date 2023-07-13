@@ -1,0 +1,59 @@
+package tests;
+
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.ButtonsPage;
+import resources.TestConstants;
+
+import static org.junit.Assert.assertEquals;
+
+public class TestButtons {
+    @Test
+    public void testDoubleClick() {
+        System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
+        WebDriver driver = new ChromeDriver();
+        try {
+            driver.get("https://demoqa.com/buttons");
+            String result = ButtonsPage.checkDoubleClickMe(driver);
+            String expectedResult = "You have done a double click";
+            assertEquals(result, expectedResult);
+        } catch (Exception e) {
+            System.out.println("Error message: " + e.getMessage());
+        } finally {
+            driver.close();
+        }
+    }
+
+    @Test
+    public void testRightClick() {
+        System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
+        WebDriver driver = new ChromeDriver();
+        try {
+            driver.get("https://demoqa.com/buttons");
+            String result = ButtonsPage.checkRightClickMe(driver);
+            String expectedResult = "You have done a right click";
+            assertEquals(result, expectedResult);
+        } catch (Exception e) {
+            System.out.println("Error message: " + e.getMessage());
+        } finally {
+            driver.close();
+        }
+    }
+
+    @Test
+    public void testClick() {
+        System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
+        WebDriver driver = new ChromeDriver();
+        try {
+            driver.get("https://demoqa.com/buttons");
+            String result = ButtonsPage.checkClickMe(driver);
+            String expectedResult = "You have done a dynamic click";
+            assertEquals(result, expectedResult);
+        } catch (Exception e) {
+            System.out.println("Error message: " + e.getMessage());
+        } finally {
+            driver.close();
+        }
+    }
+}
