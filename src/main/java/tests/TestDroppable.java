@@ -6,8 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.DroppablePage;
 import resources.TestConstants;
 
-import java.util.Set;
-
 import static org.junit.Assert.assertEquals;
 
 public class TestDroppable {
@@ -15,6 +13,7 @@ public class TestDroppable {
     public void TestSimpleDragAndDrop() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
         try {
             driver.get("https://demoqa.com/droppable");
             String result = DroppablePage.checkSimpleDragAndDrop(driver);
@@ -31,9 +30,10 @@ public class TestDroppable {
     public void TestPreventPropogationDragAndDrop1() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
         try {
             driver.get("https://demoqa.com/droppable");
-            String result = DroppablePage.checkPreventPropogationDragAndDrop(driver, 190, 10);
+            String result = DroppablePage.checkPreventPropogationDragAndDrop(driver, 170, 70);
             String expectedResult = "Dropped! Inner droppable (not greedy)";
             assertEquals(expectedResult, result);
         } catch (Exception e) {
@@ -47,6 +47,7 @@ public class TestDroppable {
     public void TestPreventPropogationDragAndDrop2() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
         try {
             driver.get("https://demoqa.com/droppable");
             String result = DroppablePage.checkPreventPropogationDragAndDrop(driver, 215, 70);

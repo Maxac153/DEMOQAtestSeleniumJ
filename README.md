@@ -9,7 +9,7 @@
 
 - Java
 - Selenium
-- JUnit
+- TestNG
 
 ## Состав проекта
 

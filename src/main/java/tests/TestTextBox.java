@@ -1,19 +1,20 @@
 package tests;
 
-import org.junit.Test;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import pages.TextBoxPage;
 import resources.TestConstants;
 
-import static org.junit.Assert.assertEquals;
+import org.testng.annotations.Test;
 
 public class TestTextBox {
     @Test
     public void testTextBox() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
-
+        driver.manage().window().maximize();
         try {
             String fullName = "tur123";
             String Email = "verygood@mail.ru";
@@ -29,7 +30,7 @@ public class TestTextBox {
                                     "Current Address :" + currentAddress + "\n" +
                                     "Permananet Address :" + permanentAddress;
 
-            assertEquals(result, expectedResult);
+            Assert.assertEquals(result, expectedResult);
 
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());

@@ -1,9 +1,9 @@
 package tests;
 
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import pages.AlertsPage;
 import resources.TestConstants;
 
@@ -12,11 +12,10 @@ public class TestAlerts {
     public void testAlertOne() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
-
+        driver.manage().window().maximize();
         try {
             driver.get("https://demoqa.com/alerts");
             String result = AlertsPage.clickButtonToSeeAlert(driver);
-            System.out.println(result);
             // assertEquals("You selected Cancel", result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
@@ -29,11 +28,10 @@ public class TestAlerts {
     public void testAlertTwo() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
-
+        driver.manage().window().maximize();
         try {
             driver.get("https://demoqa.com/alerts");
             String result = AlertsPage.clickButtonToSeeAlertAfterFiveSeconds(driver);
-            System.out.println(result);
             // assertEquals("You selected Cancel", result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
@@ -46,12 +44,11 @@ public class TestAlerts {
     public void testAlertThree() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
-
+        driver.manage().window().maximize();
         try {
             driver.get("https://demoqa.com/alerts");
             String result = AlertsPage.clickButtonToSeeConfirmBox(driver);
-            System.out.println(result);
-            assertEquals("You selected Cancel", result);
+            Assert.assertEquals("You selected Cancel", result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -63,12 +60,12 @@ public class TestAlerts {
     public void testAlertFour() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
-
+        driver.manage().window().maximize();
         try {
             driver.get("https://demoqa.com/alerts");
             String result = AlertsPage.clickButtonToSeePromtBox(driver);
             System.out.println(result);
-            assertEquals("You entered Test text", result);
+            Assert.assertEquals(result, "You entered Test text");
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
