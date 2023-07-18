@@ -21,7 +21,7 @@ public class TestBrowserWindows {
             driver.get("https://demoqa.com/browser-windows");
             String result = BrowserWindowsPage.clickButtonNewTab(driver);
             String expectedResult = "This is a sample page";
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -42,7 +42,7 @@ public class TestBrowserWindows {
             driver.get("https://demoqa.com/browser-windows");
             String result = BrowserWindowsPage.clickButtonNewWindow(driver);
             String expectedResult = "This is a sample page";
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -64,7 +64,7 @@ public class TestBrowserWindows {
             String result = BrowserWindowsPage.clickButtonNewWindowMessage(driver);
             String expectedResult = "Knowledge increases by sharing but not by saving. Please share " +
                     "this website with your friends and in your organization.";
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {

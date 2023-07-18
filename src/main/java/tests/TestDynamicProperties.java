@@ -19,7 +19,7 @@ public class TestDynamicProperties {
             driver.get("https://demoqa.com/dynamic-properties");
             String result = DynamicPropertiesPage.checkButtonEnableAfter(driver);
             String expectedResult = null;
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -36,7 +36,7 @@ public class TestDynamicProperties {
             driver.get("https://demoqa.com/dynamic-properties");
             String result = DynamicPropertiesPage.checkColorChange(driver);
             String expectedResult = "rgba(220, 53, 69, 1)";
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -53,7 +53,7 @@ public class TestDynamicProperties {
             driver.get("https://demoqa.com/dynamic-properties");
             String result = DynamicPropertiesPage.checkVisibleAfter(driver);
             String expectedResult = "Visible After 5 Seconds";
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {

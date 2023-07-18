@@ -19,7 +19,7 @@ public class TestSortable {
             driver.get("https://demoqa.com/sortable");
             String result = SortablePage.sortableItem(driver);
             String expectedResult = "One\n" + "Three\n" + "Four\n" + "Two\n" + "Five\n" + "Six";
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -37,7 +37,7 @@ public class TestSortable {
             String result = SortablePage.sortableGrid(driver);
             String expectedResult = "One\n" + "Three\n" + "Four\n" + "Five\n" + "Six\n" +
                     "Seven\n" + "Eight\n" + "Two\n" + "Nine";
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message:" + e.getMessage());
         } finally {

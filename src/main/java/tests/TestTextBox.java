@@ -31,7 +31,7 @@ public class TestTextBox {
                                     "Current Address :" + currentAddress + "\n" +
                                     "Permananet Address :" + permanentAddress;
 
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
 
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());

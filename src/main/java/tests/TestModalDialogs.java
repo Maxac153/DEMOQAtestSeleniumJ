@@ -20,7 +20,7 @@ public class TestModalDialogs {
             driver.get("https://demoqa.com/modal-dialogs");
             String result = ModalDialogsPage.checkSmallModal(driver);
             String expectedResult = "This is a small modal. It has very less content";
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -37,7 +37,7 @@ public class TestModalDialogs {
             driver.get("https://demoqa.com/modal-dialogs");
             String result = ModalDialogsPage.checkLargeModal( driver);
             String expectedResult = "Large Modal";
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {

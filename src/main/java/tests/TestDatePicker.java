@@ -19,7 +19,7 @@ public class TestDatePicker {
             driver.get("https://demoqa.com/date-picker");
             String expectedResult = "07/16/2021";
             String result = DatePickerPage.checkDate(driver, expectedResult);
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -36,7 +36,7 @@ public class TestDatePicker {
             driver.get("https://demoqa.com/date-picker");
             String expectedResult = "July 16, 2023 3:14 PM";
             String result = DatePickerPage.checkDateAndTime(driver, expectedResult);
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {

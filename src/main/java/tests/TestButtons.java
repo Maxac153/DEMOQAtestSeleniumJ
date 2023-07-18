@@ -19,7 +19,7 @@ public class TestButtons {
             driver.get("https://demoqa.com/buttons");
             String result = ButtonsPage.checkDoubleClickMe(driver);
             String expectedResult = "You have done a double click";
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -36,7 +36,7 @@ public class TestButtons {
             driver.get("https://demoqa.com/buttons");
             String result = ButtonsPage.checkRightClickMe(driver);
             String expectedResult = "You have done a right click";
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -53,7 +53,7 @@ public class TestButtons {
             driver.get("https://demoqa.com/buttons");
             String result = ButtonsPage.checkClickMe(driver);
             String expectedResult = "You have done a dynamic click";
-            Assert.assertEquals(result, expectedResult);
+            Assert.assertEquals(expectedResult, result);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
