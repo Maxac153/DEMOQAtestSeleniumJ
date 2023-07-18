@@ -1,14 +1,15 @@
 package tests;
 
 
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.ModalDialogsPage;
 import resources.TestConstants;
 
-import static org.junit.Assert.assertEquals;
-
+@Listeners({ io.qameta.allure.testng.AllureTestNg.class })
 public class TestModalDialogs {
     @Test
     public void TestSmallModal() {
@@ -19,7 +20,7 @@ public class TestModalDialogs {
             driver.get("https://demoqa.com/modal-dialogs");
             String result = ModalDialogsPage.checkSmallModal(driver);
             String expectedResult = "This is a small modal. It has very less content";
-            assertEquals(expectedResult, result);
+            Assert.assertEquals(result, expectedResult);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -36,7 +37,7 @@ public class TestModalDialogs {
             driver.get("https://demoqa.com/modal-dialogs");
             String result = ModalDialogsPage.checkLargeModal( driver);
             String expectedResult = "Large Modal";
-            assertEquals(expectedResult, result);
+            Assert.assertEquals(result, expectedResult);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {

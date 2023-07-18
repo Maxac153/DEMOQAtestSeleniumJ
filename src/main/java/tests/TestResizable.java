@@ -1,15 +1,15 @@
 package tests;
 
-
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.ResizablePage;
 import resources.TestConstants;
+import org.testng.Assert;
 
-import static org.junit.Assert.assertEquals;
-
+@Listeners({ io.qameta.allure.testng.AllureTestNg.class })
 public class TestResizable {
     @Test
     public void testResizableBox() {
@@ -19,8 +19,8 @@ public class TestResizable {
         try {
             driver.get("https://demoqa.com/resizable");
             Dimension result = ResizablePage.checkResizableBox(driver, 300, 400);
-            assertEquals(300, result.height);
-            assertEquals(500, result.width);
+            Assert.assertEquals(300, result.height);
+            Assert.assertEquals(500, result.width);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -35,8 +35,8 @@ public class TestResizable {
         try {
             driver.get("https://demoqa.com/resizable");
             Dimension result = ResizablePage.checkResizable(driver, 300, 400);
-            assertEquals(300, result.height);
-            assertEquals(500, result.width);
+            Assert.assertEquals(300, result.height);
+            Assert.assertEquals(500, result.width);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {

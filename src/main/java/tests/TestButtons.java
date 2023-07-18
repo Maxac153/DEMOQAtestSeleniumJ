@@ -1,12 +1,14 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.ButtonsPage;
 import resources.TestConstants;
 
+@Listeners({ io.qameta.allure.testng.AllureTestNg.class })
 public class TestButtons {
     @Test
     public void testDoubleClick() {

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="202,563">
+    <properties></properties>
+
+
+
+            <testcase
+                name="TestNewWindow"
+                time="4,423"
+                classname="tests.TestBrowserWindows">
+            </testcase>
+            <testcase
+                name="TestNewTab"
+                time="3,805"
+                classname="tests.TestBrowserWindows">
+            </testcase>
+            <testcase
+                name="TestNewWindowMessage"
+                time="194,335"
+                classname="tests.TestBrowserWindows">
+            </testcase>
+</testsuite>

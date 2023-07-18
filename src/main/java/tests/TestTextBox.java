@@ -4,11 +4,12 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import pages.TextBoxPage;
 import resources.TestConstants;
-
 import org.testng.annotations.Test;
 
+@Listeners({ io.qameta.allure.testng.AllureTestNg.class })
 public class TestTextBox {
     @Test
     public void testTextBox() {

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="80,781">
+    <properties></properties>
+
+
+
+            <testcase
+                name="testListClick"
+                time="40,352"
+                classname="tests.TestSortable">
+            </testcase>
+            <testcase
+                name="testGridClick"
+                time="40,429"
+                classname="tests.TestSortable">
+            </testcase>
+</testsuite>

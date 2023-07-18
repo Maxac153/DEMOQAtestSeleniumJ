@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="85,456">
+    <properties></properties>
+
+
+
+            <testcase
+                name="testDate"
+                time="42,707"
+                classname="tests.TestDatePicker">
+            </testcase>
+            <testcase
+                name="testDateTime"
+                time="42,749"
+                classname="tests.TestDatePicker">
+            </testcase>
+</testsuite>

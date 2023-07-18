@@ -2,14 +2,15 @@
 
 ### Описание
 
-Цель проекта: получение навыков в написание автоматизированных авто тестов на Python. 
+Цель проекта: получение навыков в написание автоматизированных авто тестов на Java. 
 Сайт для тестирования (<a href="https://demoqa.com/">DEMOQA</a>).
 
 ## Технологии
 
-- Java
+- Javaaa
 - Selenium
 - TestNG
+- Allure
 
 ## Состав проекта
 
@@ -18,22 +19,14 @@
 
 ## Selenium тесты
 
-Пример запуска Selenium тестов:
+Пример запуска Selenium тестов (TestNG):
 
 <img src="src\main\java\img\TestsSelenium.png" width="700" height="400">
 
-## Report Selenium
+Report Selenium (TestNG)
 
-<img src="src\main\java\img\SeleniumReport.png" width="700" height="400">
+<img src="src\main\java\img\TestsngReportSelenium.png" width="700" height="400">
 
-## Test Case
+Report Selenium (Allure)
 
-Пример тест кейсов для сайта Users:
-
-<img src="src\main\java\img\TestsCaseUsers.png" width="700" height="400">
-
-## Test List
-
-Пример тест листов для сайта Users:
-
-<img src="src\main\java\img\TestsListUsers.png" width="700" height="400">
+<img src="src\main\java\img\AllureReportSelenium.png" width="700" height="400">

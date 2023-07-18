@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="22,095">
+    <properties></properties>
+
+
+
+            <testcase
+                name="testAlertTwo"
+                time="8,847"
+                classname="tests.TestAlerts">
+            </testcase>
+            <testcase
+                name="testAlertOne"
+                time="3,909"
+                classname="tests.TestAlerts">
+            </testcase>
+            <testcase
+                name="testAlertFour"
+                time="4,931"
+                classname="tests.TestAlerts">
+            </testcase>
+            <testcase
+                name="testAlertThree"
+                time="4,408"
+                classname="tests.TestAlerts">
+            </testcase>
+</testsuite>

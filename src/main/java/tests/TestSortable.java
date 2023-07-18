@@ -3,10 +3,12 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.SortablePage;
 import resources.TestConstants;
 
+@Listeners({ io.qameta.allure.testng.AllureTestNg.class })
 public class TestSortable {
     @Test
     public void testListClick() {

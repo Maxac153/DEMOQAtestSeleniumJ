@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ">
+        <classes>
+            <class name="tests.TestAlerts"></class>
+            <class name="tests.TestBrowserWindows"></class>
+            <class name="tests.TestButtons"></class>
+            <class name="tests.TestDatePicker"></class>
+            <class name="tests.TestDroppable"></class>
+            <class name="tests.TestDynamicProperties"></class>
+            <class name="tests.TestModalDialogs"></class>
+            <class name="tests.TestProgressBar"></class>
+            <class name="tests.TestResizable"></class>
+            <class name="tests.TestSortable"></class>
+            <class name="tests.TestTextBox"></class>
+        </classes>
+    </test>
+</suite>

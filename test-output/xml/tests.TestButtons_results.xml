@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="90,641">
+    <properties></properties>
+
+
+
+            <testcase
+                name="testClick"
+                time="3,985"
+                classname="tests.TestButtons">
+            </testcase>
+            <testcase
+                name="testDoubleClick"
+                time="44,187"
+                classname="tests.TestButtons">
+            </testcase>
+            <testcase
+                name="testRightClick"
+                time="42,469"
+                classname="tests.TestButtons">
+            </testcase>
+</testsuite>

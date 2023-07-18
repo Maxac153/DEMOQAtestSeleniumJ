@@ -1,13 +1,14 @@
 package tests;
 
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.DynamicPropertiesPage;
 import resources.TestConstants;
 
-import static org.junit.Assert.assertEquals;
-
+@Listeners({ io.qameta.allure.testng.AllureTestNg.class })
 public class TestDynamicProperties {
     @Test
     public void TestButtonEnableAfter() {
@@ -18,7 +19,7 @@ public class TestDynamicProperties {
             driver.get("https://demoqa.com/dynamic-properties");
             String result = DynamicPropertiesPage.checkButtonEnableAfter(driver);
             String expectedResult = null;
-            assertEquals(expectedResult, result);
+            Assert.assertEquals(result, expectedResult);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -35,7 +36,7 @@ public class TestDynamicProperties {
             driver.get("https://demoqa.com/dynamic-properties");
             String result = DynamicPropertiesPage.checkColorChange(driver);
             String expectedResult = "rgba(220, 53, 69, 1)";
-            assertEquals(expectedResult, result);
+            Assert.assertEquals(result, expectedResult);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -52,7 +53,7 @@ public class TestDynamicProperties {
             driver.get("https://demoqa.com/dynamic-properties");
             String result = DynamicPropertiesPage.checkVisibleAfter(driver);
             String expectedResult = "Visible After 5 Seconds";
-            assertEquals(expectedResult, result);
+            Assert.assertEquals(result, expectedResult);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="85,490">
+    <properties></properties>
+
+
+
+            <testcase
+                name="testResizable"
+                time="42,650"
+                classname="tests.TestResizable">
+            </testcase>
+            <testcase
+                name="testResizableBox"
+                time="42,840"
+                classname="tests.TestResizable">
+            </testcase>
+</testsuite>
