@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="125,006">
+    <properties></properties>
+
+
+
+            <testcase
+                name="TestButtonEnableAfter"
+                time="42,529"
+                classname="tests.TestDynamicProperties">
+            </testcase>
+            <testcase
+                name="TestColorChange"
+                time="40,060"
+                classname="tests.TestDynamicProperties">
+            </testcase>
+            <testcase
+                name="TestVisibleAfter"
+                time="42,417"
+                classname="tests.TestDynamicProperties">
+            </testcase>
+</testsuite>

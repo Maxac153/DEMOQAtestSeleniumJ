@@ -18,7 +18,8 @@ public class TestAlerts {
         try {
             driver.get("https://demoqa.com/alerts");
             String result = AlertsPage.clickButtonToSeeAlert(driver);
-            // assertEquals("You selected Cancel", result);
+            String expectedResult = "You clicked a button";
+            Assert.assertEquals(result, expectedResult);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -34,7 +35,8 @@ public class TestAlerts {
         try {
             driver.get("https://demoqa.com/alerts");
             String result = AlertsPage.clickButtonToSeeAlertAfterFiveSeconds(driver);
-            // assertEquals("You selected Cancel", result);
+            String expectedResult = "This alert appeared after 5 seconds";
+            Assert.assertEquals(result, expectedResult);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -50,7 +52,8 @@ public class TestAlerts {
         try {
             driver.get("https://demoqa.com/alerts");
             String result = AlertsPage.clickButtonToSeeConfirmBox(driver);
-            Assert.assertEquals("You selected Cancel", result);
+            String expectedResult = "You selected Cancel";
+            Assert.assertEquals(result, expectedResult);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {
@@ -66,8 +69,8 @@ public class TestAlerts {
         try {
             driver.get("https://demoqa.com/alerts");
             String result = AlertsPage.clickButtonToSeePromtBox(driver);
-            System.out.println(result);
-            Assert.assertEquals(result, "You entered Test text");
+            String expectedResult = "You entered Test text";
+            Assert.assertEquals(result, expectedResult);
         } catch (Exception e) {
             System.out.println("Error message: " + e.getMessage());
         } finally {

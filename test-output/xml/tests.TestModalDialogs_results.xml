@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="82,556">
+    <properties></properties>
+
+
+
+            <testcase
+                name="TestLargeModal"
+                time="40,070"
+                classname="tests.TestModalDialogs">
+            </testcase>
+            <testcase
+                name="TestSmallModal"
+                time="42,486"
+                classname="tests.TestModalDialogs">
+            </testcase>
+</testsuite>
