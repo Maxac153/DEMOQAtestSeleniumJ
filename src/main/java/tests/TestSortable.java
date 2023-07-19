@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -8,9 +10,11 @@ import org.testng.annotations.Test;
 import pages.SortablePage;
 import resources.TestConstants;
 
-@Listeners({ io.qameta.allure.testng.AllureTestNg.class })
+@Epic("Тестирование сортировки")
+@Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestSortable {
     @Test
+    @Feature("Проверка сортировки листа")
     public void testListClick() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -28,6 +32,7 @@ public class TestSortable {
     }
 
     @Test
+    @Feature("Проверка сортировки сетки")
     public void testGridClick() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();

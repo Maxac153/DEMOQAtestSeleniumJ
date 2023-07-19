@@ -4,19 +4,19 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="85,456">
+           time="83,140">
     <properties></properties>
 
 
 
             <testcase
                 name="testDate"
-                time="42,707"
+                time="40,348"
                 classname="tests.TestDatePicker">
             </testcase>
             <testcase
                 name="testDateTime"
-                time="42,749"
+                time="42,792"
                 classname="tests.TestDatePicker">
             </testcase>
 </testsuite>

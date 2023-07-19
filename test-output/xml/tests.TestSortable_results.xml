@@ -4,19 +4,19 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="80,781">
+           time="83,146">
     <properties></properties>
 
 
 
             <testcase
-                name="testListClick"
-                time="40,352"
+                name="testGridClick"
+                time="40,446"
                 classname="tests.TestSortable">
             </testcase>
             <testcase
-                name="testGridClick"
-                time="40,429"
+                name="testListClick"
+                time="42,700"
                 classname="tests.TestSortable">
             </testcase>
 </testsuite>

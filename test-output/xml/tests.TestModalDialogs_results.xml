@@ -4,19 +4,19 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="82,556">
+           time="85,487">
     <properties></properties>
 
 
 
             <testcase
                 name="TestLargeModal"
-                time="40,070"
+                time="42,886"
                 classname="tests.TestModalDialogs">
             </testcase>
             <testcase
                 name="TestSmallModal"
-                time="42,486"
+                time="42,601"
                 classname="tests.TestModalDialogs">
             </testcase>
 </testsuite>

@@ -4,19 +4,19 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="85,490">
+           time="83,087">
     <properties></properties>
 
 
 
             <testcase
                 name="testResizable"
-                time="42,650"
+                time="40,177"
                 classname="tests.TestResizable">
             </testcase>
             <testcase
                 name="testResizableBox"
-                time="42,840"
+                time="42,910"
                 classname="tests.TestResizable">
             </testcase>
 </testsuite>

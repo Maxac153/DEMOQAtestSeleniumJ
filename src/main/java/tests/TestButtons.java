@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -8,9 +10,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.ButtonsPage;
 import resources.TestConstants;
 
-@Listeners({ io.qameta.allure.testng.AllureTestNg.class })
+@Listeners({io.qameta.allure.testng.AllureTestNg.class})
+@Epic("Тестирование кнопок")
 public class TestButtons {
+
     @Test
+    @Feature("Проверка двойного нажатия")
     public void testDoubleClick() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -28,6 +33,7 @@ public class TestButtons {
     }
 
     @Test
+    @Feature("Проверка нажатия правой кнопки")
     public void testRightClick() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -45,6 +51,7 @@ public class TestButtons {
     }
 
     @Test
+    @Feature("Проверка простого нажатия")
     public void testClick() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();

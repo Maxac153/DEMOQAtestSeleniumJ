@@ -1,6 +1,8 @@
 package tests;
 
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -9,9 +11,11 @@ import pages.TextBoxPage;
 import resources.TestConstants;
 import org.testng.annotations.Test;
 
+@Epic("Тестирование текстовых полей")
 @Listeners({ io.qameta.allure.testng.AllureTestNg.class })
 public class TestTextBox {
     @Test
+    @Feature("Проверка ввода корректных данных")
     public void testTextBox() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();

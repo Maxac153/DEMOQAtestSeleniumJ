@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -10,9 +12,12 @@ import resources.TestConstants;
 
 import java.util.Set;
 
+@Epic("Тестирование окон")
 @Listeners({ io.qameta.allure.testng.AllureTestNg.class })
 public class TestBrowserWindows {
+
     @Test
+    @Feature("Проверка новой вкладки")
     public void TestNewTab() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -34,6 +39,7 @@ public class TestBrowserWindows {
     }
 
     @Test
+    @Feature("Проверка нового окна")
     public void TestNewWindow() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -55,6 +61,7 @@ public class TestBrowserWindows {
     }
 
     @Test
+    @Feature("Проверка нового окна с сообщением")
     public void TestNewWindowMessage() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();

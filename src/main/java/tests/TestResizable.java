@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,9 +11,12 @@ import pages.ResizablePage;
 import resources.TestConstants;
 import org.testng.Assert;
 
-@Listeners({ io.qameta.allure.testng.AllureTestNg.class })
+@Epic("Тестирование изменения размера")
+@Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestResizable {
+
     @Test
+    @Feature("Проверка изменения размера в блоке")
     public void testResizableBox() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -27,7 +32,9 @@ public class TestResizable {
             driver.close();
         }
     }
+
     @Test
+    @Feature("Проверка изменения размера без ограничения блока")
     public void testResizable() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();

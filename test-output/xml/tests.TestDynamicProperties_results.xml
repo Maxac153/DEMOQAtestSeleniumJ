@@ -4,24 +4,24 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="125,006">
+           time="125,250">
     <properties></properties>
 
 
 
             <testcase
                 name="TestButtonEnableAfter"
-                time="42,529"
+                time="42,551"
                 classname="tests.TestDynamicProperties">
             </testcase>
             <testcase
                 name="TestColorChange"
-                time="40,060"
+                time="42,476"
                 classname="tests.TestDynamicProperties">
             </testcase>
             <testcase
                 name="TestVisibleAfter"
-                time="42,417"
+                time="40,223"
                 classname="tests.TestDynamicProperties">
             </testcase>
 </testsuite>

@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -8,9 +10,11 @@ import org.testng.annotations.Test;
 import pages.AlertsPage;
 import resources.TestConstants;
 
-@Listeners({ io.qameta.allure.testng.AllureTestNg.class })
+@Epic("Тестирование оповещений")
+@Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestAlerts {
     @Test
+    @Feature("Проверка простого оповещения")
     public void testAlertOne() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -28,6 +32,7 @@ public class TestAlerts {
     }
 
     @Test
+    @Feature("Проверка оповещения который появиться после 5 секунд")
     public void testAlertTwo() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -45,6 +50,7 @@ public class TestAlerts {
     }
 
     @Test
+    @Feature("Проверка окна подтверждения")
     public void testAlertThree() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -62,6 +68,7 @@ public class TestAlerts {
     }
 
     @Test
+    @Feature("Проверка окна подсказки")
     public void testAlertFour() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();

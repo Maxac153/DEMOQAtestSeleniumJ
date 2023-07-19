@@ -4,24 +4,24 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="202,563">
+           time="246,194">
     <properties></properties>
 
 
 
             <testcase
                 name="TestNewWindow"
-                time="4,423"
+                time="40,410"
                 classname="tests.TestBrowserWindows">
             </testcase>
             <testcase
                 name="TestNewTab"
-                time="3,805"
+                time="42,605"
                 classname="tests.TestBrowserWindows">
             </testcase>
             <testcase
                 name="TestNewWindowMessage"
-                time="194,335"
+                time="163,179"
                 classname="tests.TestBrowserWindows">
             </testcase>
 </testsuite>

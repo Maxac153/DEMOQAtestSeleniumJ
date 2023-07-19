@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -9,8 +11,11 @@ import pages.DynamicPropertiesPage;
 import resources.TestConstants;
 
 @Listeners({ io.qameta.allure.testng.AllureTestNg.class })
+@Epic("Тестирование динамических свойст")
 public class TestDynamicProperties {
+
     @Test
+    @Feature("Проверка активности кнопки")
     public void TestButtonEnableAfter() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -28,6 +33,7 @@ public class TestDynamicProperties {
     }
 
     @Test
+    @Feature("Проверка цвета кнопки")
     public void TestColorChange() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -45,6 +51,7 @@ public class TestDynamicProperties {
     }
 
     @Test
+    @Feature("Проверка появления кнопки")
     public void TestVisibleAfter() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();

@@ -4,14 +4,14 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="52,488">
+           time="50,071">
     <properties></properties>
 
 
 
             <testcase
                 name="TestProgressBar"
-                time="52,488"
+                time="50,071"
                 classname="tests.TestProgressBar">
             </testcase>
 </testsuite>

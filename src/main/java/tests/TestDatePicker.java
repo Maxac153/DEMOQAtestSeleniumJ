@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -9,8 +11,11 @@ import pages.DatePickerPage;
 import resources.TestConstants;
 
 @Listeners({ io.qameta.allure.testng.AllureTestNg.class })
+@Epic("Тестирование изменеия даты")
 public class TestDatePicker {
+
     @Test
+    @Feature("Проверка даты")
     public void testDate() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -28,6 +33,7 @@ public class TestDatePicker {
     }
 
     @Test
+    @Feature("Проверка даты и времени")
     public void testDateTime() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();

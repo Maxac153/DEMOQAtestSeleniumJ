@@ -1,6 +1,8 @@
 package tests;
 
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -9,9 +11,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.ModalDialogsPage;
 import resources.TestConstants;
 
+@Epic("Тестирование модальных окон")
 @Listeners({ io.qameta.allure.testng.AllureTestNg.class })
 public class TestModalDialogs {
+
     @Test
+    @Feature("Проверка активности кнопки (маленького размера)")
     public void TestSmallModal() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();
@@ -29,6 +34,7 @@ public class TestModalDialogs {
     }
 
     @Test
+    @Feature("Проверка активности кнопки (большого размера)")
     public void TestLargeModal() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         WebDriver driver = new ChromeDriver();

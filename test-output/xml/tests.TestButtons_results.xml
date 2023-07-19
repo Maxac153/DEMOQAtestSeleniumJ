@@ -4,24 +4,24 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="90,641">
+           time="128,222">
     <properties></properties>
 
 
 
             <testcase
-                name="testClick"
-                time="3,985"
-                classname="tests.TestButtons">
-            </testcase>
-            <testcase
                 name="testDoubleClick"
-                time="44,187"
+                time="42,739"
                 classname="tests.TestButtons">
             </testcase>
             <testcase
                 name="testRightClick"
-                time="42,469"
+                time="42,538"
+                classname="tests.TestButtons">
+            </testcase>
+            <testcase
+                name="testClick"
+                time="42,945"
                 classname="tests.TestButtons">
             </testcase>
 </testsuite>
