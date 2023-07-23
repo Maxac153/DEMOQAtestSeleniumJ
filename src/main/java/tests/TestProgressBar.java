@@ -1,35 +1,42 @@
 package tests;
 
+import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.ProgressBarPage;
 import resources.TestConstants;
+import wrapper.WrapperClass;
+
+import java.io.ByteArrayInputStream;
 
 @Epic("Тестирование индекатора")
-@Listeners({ io.qameta.allure.testng.AllureTestNg.class })
-public class TestProgressBar {
+@Listeners({io.qameta.allure.testng.AllureTestNg.class})
+public class TestProgressBar extends WrapperClass {
+    public TestProgressBar() {
+        super("https://demoqa.com/progress-bar");
+    }
 
-    @Test
+    @Test(priority = 1)
     @Feature("Проверка загрузки индикатора")
     public void TestProgressBar() {
-        System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         try {
-            driver.get("https://demoqa.com/progress-bar");
             String result = ProgressBarPage.checkProgressBar(driver);
             String expectedResult = "100";
-            Assert.assertEquals(expectedResult, result);
+            Assert.assertEquals(result, expectedResult);
         } catch (Exception e) {
-            System.out.println("Error message: " + e.getMessage());
-        } finally {
-            driver.close();
-        }
 
+        } finally {
+            screenshot();
+        }
     }
 }

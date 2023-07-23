@@ -1,53 +1,53 @@
 package tests;
 
+import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.ResizablePage;
 import resources.TestConstants;
 import org.testng.Assert;
+import wrapper.WrapperClass;
+
+import java.io.ByteArrayInputStream;
 
 @Epic("Тестирование изменения размера")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
-public class TestResizable {
+public class TestResizable extends WrapperClass {
+    public TestResizable() {
+        super("https://demoqa.com/resizable");
+    }
 
-    @Test
+    @Test(priority = 1)
     @Feature("Проверка изменения размера в блоке")
     public void testResizableBox() {
-        System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        Dimension result = ResizablePage.checkResizableBox(driver, 300, 400);
         try {
-            driver.get("https://demoqa.com/resizable");
-            Dimension result = ResizablePage.checkResizableBox(driver, 300, 400);
             Assert.assertEquals(300, result.height);
             Assert.assertEquals(500, result.width);
-        } catch (Exception e) {
-            System.out.println("Error message: " + e.getMessage());
         } finally {
-            driver.close();
+            screenshot();
         }
     }
 
-    @Test
+    @Test(priority = 2)
     @Feature("Проверка изменения размера без ограничения блока")
     public void testResizable() {
-        System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        Dimension result = ResizablePage.checkResizable(driver, 30, 50);
         try {
-            driver.get("https://demoqa.com/resizable");
-            Dimension result = ResizablePage.checkResizable(driver, 300, 400);
-            Assert.assertEquals(300, result.height);
-            Assert.assertEquals(500, result.width);
-        } catch (Exception e) {
-            System.out.println("Error message: " + e.getMessage());
+            Assert.assertEquals(250, result.height);
+            Assert.assertEquals(230, result.width);
         } finally {
-            driver.close();
+            screenshot();
         }
     }
 }

@@ -1,70 +1,64 @@
 package tests;
 
+import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.DynamicPropertiesPage;
 import resources.TestConstants;
+import wrapper.WrapperClass;
 
-@Listeners({ io.qameta.allure.testng.AllureTestNg.class })
+import java.io.ByteArrayInputStream;
+
+@Listeners({io.qameta.allure.testng.AllureTestNg.class})
 @Epic("Тестирование динамических свойст")
-public class TestDynamicProperties {
+public class TestDynamicProperties extends WrapperClass  {
+    public TestDynamicProperties() {
+        super("https://demoqa.com/dynamic-properties");
+    }
 
-    @Test
+    @Test(priority = 1)
     @Feature("Проверка активности кнопки")
     public void TestButtonEnableAfter() {
-        System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        String result = DynamicPropertiesPage.checkButtonEnableAfter(driver);
+        String expectedResult = null;
         try {
-            driver.get("https://demoqa.com/dynamic-properties");
-            String result = DynamicPropertiesPage.checkButtonEnableAfter(driver);
-            String expectedResult = null;
-            Assert.assertEquals(expectedResult, result);
-        } catch (Exception e) {
-            System.out.println("Error message: " + e.getMessage());
+            Assert.assertEquals(result, expectedResult);
         } finally {
-            driver.close();
+            screenshot();
         }
     }
 
-    @Test
+    @Test(priority = 2)
     @Feature("Проверка цвета кнопки")
     public void TestColorChange() {
-        System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        String result = DynamicPropertiesPage.checkColorChange(driver);
+        String expectedResult = "rgba(220, 53, 69, 1)";
         try {
-            driver.get("https://demoqa.com/dynamic-properties");
-            String result = DynamicPropertiesPage.checkColorChange(driver);
-            String expectedResult = "rgba(220, 53, 69, 1)";
-            Assert.assertEquals(expectedResult, result);
-        } catch (Exception e) {
-            System.out.println("Error message: " + e.getMessage());
+            Assert.assertEquals(result, expectedResult);
         } finally {
-            driver.close();
+            screenshot();
         }
     }
 
-    @Test
+    @Test(priority = 3)
     @Feature("Проверка появления кнопки")
     public void TestVisibleAfter() {
-        System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        String result = DynamicPropertiesPage.checkVisibleAfter(driver);
+        String expectedResult = "Visible After 5 Seconds";
         try {
-            driver.get("https://demoqa.com/dynamic-properties");
-            String result = DynamicPropertiesPage.checkVisibleAfter(driver);
-            String expectedResult = "Visible After 5 Seconds";
-            Assert.assertEquals(expectedResult, result);
-        } catch (Exception e) {
-            System.out.println("Error message: " + e.getMessage());
+            Assert.assertEquals(result, expectedResult);
         } finally {
-            driver.close();
+            screenshot();
         }
     }
 }

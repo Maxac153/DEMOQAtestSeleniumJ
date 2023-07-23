@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ"
+<testsuite name="DEMOQAtestSeleniumJ"
            tests="3"
            failures="0"
            errors="0"
            skipped="0"
-           time="125,250">
+           time="0,590">
     <properties></properties>
 
 
 
             <testcase
                 name="TestButtonEnableAfter"
-                time="42,551"
-                classname="tests.TestDynamicProperties">
-            </testcase>
-            <testcase
-                name="TestColorChange"
-                time="42,476"
+                time="0,238"
                 classname="tests.TestDynamicProperties">
             </testcase>
             <testcase
                 name="TestVisibleAfter"
-                time="40,223"
+                time="0,179"
+                classname="tests.TestDynamicProperties">
+            </testcase>
+            <testcase
+                name="TestColorChange"
+                time="0,173"
                 classname="tests.TestDynamicProperties">
             </testcase>
 </testsuite>

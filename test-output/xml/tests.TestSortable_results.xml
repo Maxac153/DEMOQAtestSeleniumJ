@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ"
+<testsuite name="DEMOQAtestSeleniumJ"
            tests="2"
            failures="0"
            errors="0"
            skipped="0"
-           time="83,146">
+           time="1,023">
     <properties></properties>
 
 
 
             <testcase
-                name="testGridClick"
-                time="40,446"
+                name="testListClick"
+                time="0,515"
                 classname="tests.TestSortable">
             </testcase>
             <testcase
-                name="testListClick"
-                time="42,700"
+                name="testGridClick"
+                time="0,508"
                 classname="tests.TestSortable">
             </testcase>
 </testsuite>

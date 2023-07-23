@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ"
+<testsuite name="DEMOQAtestSeleniumJ"
            tests="1"
            failures="0"
            errors="0"
            skipped="0"
-           time="50,071">
+           time="10,351">
     <properties></properties>
 
 
 
             <testcase
                 name="TestProgressBar"
-                time="50,071"
+                time="10,351"
                 classname="tests.TestProgressBar">
             </testcase>
 </testsuite>

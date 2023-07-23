@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="C:/Users/Turgor/IdeaProjects/UsersTestSeleniumJ"
+<testsuite name="DEMOQAtestSeleniumJ"
            tests="4"
            failures="0"
            errors="0"
            skipped="0"
-           time="169,683">
+           time="6,164">
     <properties></properties>
 
 
 
             <testcase
-                name="testAlertFour"
-                time="41,268"
-                classname="tests.TestAlerts">
-            </testcase>
-            <testcase
                 name="testAlertOne"
-                time="42,705"
-                classname="tests.TestAlerts">
-            </testcase>
-            <testcase
-                name="testAlertThree"
-                time="40,329"
+                time="0,326"
                 classname="tests.TestAlerts">
             </testcase>
             <testcase
                 name="testAlertTwo"
-                time="45,381"
+                time="5,323"
+                classname="tests.TestAlerts">
+            </testcase>
+            <testcase
+                name="testAlertThree"
+                time="0,265"
+                classname="tests.TestAlerts">
+            </testcase>
+            <testcase
+                name="testAlertFour"
+                time="0,250"
                 classname="tests.TestAlerts">
             </testcase>
 </testsuite>
