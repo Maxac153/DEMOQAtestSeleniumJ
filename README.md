@@ -7,7 +7,7 @@
 
 ## Технологии
 
-- Javaaa
+- Java
 - Selenium
 - TestNG
 - Allure
