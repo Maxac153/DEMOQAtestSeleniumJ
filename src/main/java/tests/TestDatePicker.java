@@ -22,13 +22,11 @@ import java.io.ByteArrayInputStream;
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 @Epic("Тестирование изменеия даты")
 public class TestDatePicker extends WrapperClass {
-    public TestDatePicker() {
-        super("https://demoqa.com/date-picker");
-    }
 
     @Test(priority = 1)
     @Feature("Проверка даты")
     public void testDate() {
+        driver.get("https://demoqa.com/date-picker");
         String expectedResult = "07/16/2021";
         String result = DatePickerPage.checkDate(driver, expectedResult);
         try {

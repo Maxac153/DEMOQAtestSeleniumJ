@@ -22,13 +22,10 @@ import java.io.ByteArrayInputStream;
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 @Epic("Тестирование динамических свойст")
 public class TestDynamicProperties extends WrapperClass  {
-    public TestDynamicProperties() {
-        super("https://demoqa.com/dynamic-properties");
-    }
-
     @Test(priority = 1)
     @Feature("Проверка активности кнопки")
     public void TestButtonEnableAfter() {
+        driver.get("https://demoqa.com/dynamic-properties");
         String result = DynamicPropertiesPage.checkButtonEnableAfter(driver);
         String expectedResult = null;
         try {

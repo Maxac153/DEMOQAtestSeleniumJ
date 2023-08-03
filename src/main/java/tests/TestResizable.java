@@ -23,13 +23,10 @@ import java.io.ByteArrayInputStream;
 @Epic("Тестирование изменения размера")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestResizable extends WrapperClass {
-    public TestResizable() {
-        super("https://demoqa.com/resizable");
-    }
-
     @Test(priority = 1)
     @Feature("Проверка изменения размера в блоке")
     public void testResizableBox() {
+        driver.get("https://demoqa.com/resizable");
         Dimension result = ResizablePage.checkResizableBox(driver, 300, 400);
         try {
             Assert.assertEquals(300, result.height);

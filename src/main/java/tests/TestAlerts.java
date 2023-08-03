@@ -12,13 +12,11 @@ import wrapper.WrapperClass;
 @Epic("Тестирование оповещений")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestAlerts extends WrapperClass {
-    public TestAlerts() {
-        super("https://demoqa.com/alerts");
-    }
 
     @Test(priority = 1)
     @Feature("Проверка простого оповещения")
     public void testAlertOne() {
+        driver.get("https://demoqa.com/alerts");
         String result = AlertsPage.clickButtonToSeeAlert(driver);
         String expectedResult = "You clicked a button";
         try {

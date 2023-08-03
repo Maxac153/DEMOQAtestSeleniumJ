@@ -22,13 +22,10 @@ import java.io.ByteArrayInputStream;
 @Epic("Тестирование индекатора")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestProgressBar extends WrapperClass {
-    public TestProgressBar() {
-        super("https://demoqa.com/progress-bar");
-    }
-
     @Test(priority = 1)
     @Feature("Проверка загрузки индикатора")
     public void TestProgressBar() {
+        driver.get("https://demoqa.com/progress-bar");
         try {
             String result = ProgressBarPage.checkProgressBar(driver);
             String expectedResult = "100";

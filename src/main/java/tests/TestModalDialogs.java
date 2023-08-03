@@ -23,13 +23,10 @@ import java.io.ByteArrayInputStream;
 @Epic("Тестирование модальных окон")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestModalDialogs extends WrapperClass {
-    public TestModalDialogs() {
-        super("https://demoqa.com/modal-dialogs");
-    }
-
     @Test(priority = 1)
     @Feature("Проверка активности кнопки (маленького размера)")
     public void TestSmallModal() {
+        driver.get("https://demoqa.com/modal-dialogs");
         String result = ModalDialogsPage.checkSmallModal(driver);
         String expectedResult = "Small Modal";
         try {

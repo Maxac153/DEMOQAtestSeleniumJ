@@ -10,13 +10,11 @@ import wrapper.WrapperClass;
 @Epic("Тестирование окон")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestBrowserWindows extends WrapperClass {
-    public TestBrowserWindows() {
-        super("https://demoqa.com/browser-windows");
-    }
 
     @Test(priority = 1)
     @Feature("Проверка новой вкладки")
     public void TestNewTab() {
+        driver.get("https://demoqa.com/browser-windows");
         String result = BrowserWindowsPage.clickButtonNewTab(driver);
         String expectedResult = "This is a sample page";
         try {

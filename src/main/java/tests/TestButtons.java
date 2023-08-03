@@ -22,13 +22,11 @@ import java.io.ByteArrayInputStream;
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 @Epic("Тестирование кнопок")
 public class TestButtons extends WrapperClass {
-    public TestButtons() {
-        super("https://demoqa.com/buttons");
-    }
 
     @Test(priority = 1)
     @Feature("Проверка двойного нажатия")
     public void testDoubleClick() {
+        driver.get("https://demoqa.com/buttons");
         String result = ButtonsPage.checkDoubleClickMe(driver);
         String expectedResult = "You have done a double click";
         try {

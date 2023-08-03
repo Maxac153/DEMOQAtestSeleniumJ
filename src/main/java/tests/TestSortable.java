@@ -22,13 +22,10 @@ import java.io.ByteArrayInputStream;
 @Epic("Тестирование сортировки")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestSortable extends WrapperClass  {
-    public TestSortable() {
-        super("https://demoqa.com/sortable");
-    }
-
     @Test(priority = 1)
     @Feature("Проверка сортировки листа")
     public void testListClick() {
+        driver.get("https://demoqa.com/sortable");
         String result = SortablePage.sortableItem(driver);
         String expectedResult = "One\n" + "Three\n" + "Four\n" + "Two\n" + "Five\n" + "Six";
         try {

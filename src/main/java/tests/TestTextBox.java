@@ -23,13 +23,10 @@ import java.io.ByteArrayInputStream;
 @Epic("Тестирование текстовых полей")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestTextBox extends WrapperClass {
-    public TestTextBox() {
-        super("https://demoqa.com/text-box");
-    }
-
     @Test(priority = 1)
     @Feature("Проверка ввода корректных данных")
     public void testTextBox() {
+        driver.get("https://demoqa.com/text-box");
         String fullName = "tur123";
         String Email = "verygood@mail.ru";
         String currentAddress = "Товарищи! новая модель организационной" +

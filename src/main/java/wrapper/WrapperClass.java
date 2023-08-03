@@ -14,18 +14,12 @@ import java.io.ByteArrayInputStream;
 
 public class WrapperClass {
     public static WebDriver driver;
-    private static String url;
-
-    public WrapperClass(String url) {
-        this.url = url;
-    }
 
     @BeforeTest
     public void setUp() {
         System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(this.url);
     }
 
     @Attachment(value = "Screenshot", type = "image/png")

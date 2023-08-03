@@ -22,13 +22,11 @@ import java.io.ByteArrayInputStream;
 @Epic("Тестирование DragAndDrop")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestDroppable extends WrapperClass {
-    public TestDroppable() {
-        super("https://demoqa.com/droppable");
-    }
 
     @Feature("Проверка простого перетаскивания")
     @Test(priority = 1)
     public void TestSimpleDragAndDrop() {
+        driver.get("https://demoqa.com/droppable");
         String result = DroppablePage.checkSimpleDragAndDrop(driver);
         String expectedResult = "Dropped!";
         try {
