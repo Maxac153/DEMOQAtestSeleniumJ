@@ -14,7 +14,7 @@
 
 ## Состав проекта
 
-- Файлы (src/main/java/tests) с Python тестами
+- Файлы (src/main/java/tests) с Java тестами
 - Отчет (test-output)
 
 ## Selenium тесты
