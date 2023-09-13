@@ -11,6 +11,7 @@ target/
 .idea
 *allure-results
 *allure_report
+*test-output
 *.iws
 *.iml
 *.ipr
