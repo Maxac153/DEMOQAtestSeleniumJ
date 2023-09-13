@@ -8,6 +8,9 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.idea
+*allure-results
+*allure_report
 *.iws
 *.iml
 *.ipr
