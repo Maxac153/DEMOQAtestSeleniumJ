@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import resources.TestConstants;
 
 import java.io.ByteArrayInputStream;
 
@@ -17,7 +16,6 @@ public class WrapperClass {
 
     @BeforeTest
     public void setUp() {
-        System.setProperty(TestConstants.WEBDRIVER, TestConstants.CHROMEDRIVER);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }

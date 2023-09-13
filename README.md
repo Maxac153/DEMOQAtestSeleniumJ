@@ -21,13 +21,13 @@
 
 Пример запуска Selenium тестов (TestNG):
 
-<img src="src\main\java\img\TestsSelenium.png" width="700" height="400">
+<img src="./img/TestsSelenium.png" width="700" height="400">
 
 Report Selenium (TestNG)
 
-<img src="src\main\java\img\TestsngReportSelenium.png" width="700" height="400">
+<img src="./img/TestsngReportSelenium.png" width="700" height="400">
 
 Report Selenium (Allure)
 
-<img src="src\main\java\img\AllureReportSeleniumAllTests.png" width="700" height="400">
-<img src="src\main\java\img\AllureReportSeleniumOneTest.png" width="700" height="400">
+<img src="./img/AllureReportSeleniumAllTests.png" width="700" height="400">
+<img src="./img/AllureReportSeleniumOneTest.png" width="700" height="400">

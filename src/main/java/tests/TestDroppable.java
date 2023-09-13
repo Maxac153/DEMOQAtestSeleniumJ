@@ -1,23 +1,12 @@
 package tests;
 
-import io.qameta.allure.Allure;
-import io.qameta.allure.Attachment;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import pages.DroppablePage;
-import resources.TestConstants;
 import org.testng.annotations.Test;
 import wrapper.WrapperClass;
-
-import java.io.ByteArrayInputStream;
 
 @Epic("Тестирование DragAndDrop")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})

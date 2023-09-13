@@ -2,11 +2,9 @@ package tests;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.AlertsPage;
-import resources.TestConstants;
 import wrapper.WrapperClass;
 
 @Epic("Тестирование оповещений")
