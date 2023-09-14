@@ -11,7 +11,7 @@ import wrapper.WrapperClass;
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 @Epic("Тестирование динамических свойст")
 public class TestDynamicProperties extends WrapperClass  {
-    @Test(priority = 1)
+    @Test()
     @Feature("Проверка активности кнопки")
     public void TestButtonEnableAfter() {
         driver.get("https://demoqa.com/dynamic-properties");
@@ -24,7 +24,7 @@ public class TestDynamicProperties extends WrapperClass  {
         }
     }
 
-    @Test(priority = 2)
+    @Test()
     @Feature("Проверка цвета кнопки")
     public void TestColorChange() {
         String result = DynamicPropertiesPage.checkColorChange(driver);
@@ -36,7 +36,7 @@ public class TestDynamicProperties extends WrapperClass  {
         }
     }
 
-    @Test(priority = 3)
+    @Test()
     @Feature("Проверка появления кнопки")
     public void TestVisibleAfter() {
         String result = DynamicPropertiesPage.checkVisibleAfter(driver);

@@ -12,10 +12,9 @@
 - TestNG
 - Allure
 
-## Состав проекта
+## Окружение
 
-- Файлы (src/main/java/tests) с Java тестами
-- Отчет (test-output)
+
 
 ## Selenium тесты
 
