@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import wrapper.WrapperClass;
 
 public class SelectMenuPage {
-    private static By getSelectValueElement(String selectElement) {
+    private static By getSelectValueLocator(String selectElement) {
         By result;
         switch (selectElement) {
             case "Group 1, option 1":
@@ -32,16 +32,41 @@ public class SelectMenuPage {
     }
 
     public static String selectValue(WebDriver driver, String selectElement) {
-        WebElement select = driver.findElements(SelectMenuLocators.SELECTS).get(0);
-        select.click();
-        driver.findElement(getSelectValueElement(selectElement)).click();
-        return select.getText();
+        WebElement select_value = driver.findElements(SelectMenuLocators.SELECTS).get(0);
+        select_value.click();
+        driver.findElement(getSelectValueLocator(selectElement)).click();
+        return select_value.getText();
     }
 
-    public static String selectOne(WebDriver driver, Integer item) {
-        WebElement select_one = driver.findElements(SelectMenuLocators.SELECTS).get(1);
+    private static By getSelectOneLocator(String selectElement) {
+        By result;
+        switch (selectElement) {
+            case "Dr.":
+                result = SelectMenuLocators.SELECT_DR;
+                break;
+            case "Mr.":
+                result = SelectMenuLocators.SELECT_MR;
+                break;
+            case "Mrs.":
+                result = SelectMenuLocators.SELECT_MRS;
+                break;
+            case "Ms.":
+                result = SelectMenuLocators.SELECT_MS;
+                break;
+            case "Prof.":
+                result = SelectMenuLocators.SELECT_PROF;
+                break;
+            default:
+                result = SelectMenuLocators.SELECT_OTHER;
+        }
+        return result;
+    }
 
-        return "";
+    public static String selectOne(WebDriver driver, String selectElement) {
+        WebElement select_one = driver.findElements(SelectMenuLocators.SELECTS).get(1);
+        select_one.click();
+        driver.findElement(getSelectOneLocator(selectElement)).click();
+        return select_one.getText();
     }
 
     public static String selectOldStyleMenu() {

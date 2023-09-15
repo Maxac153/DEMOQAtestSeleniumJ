@@ -21,4 +21,17 @@ public class TestSelectMenu extends WrapperClass {
             screenshot();
         }
     }
+
+    @Test()
+    @Feature("")
+    public void testSelectOne() {
+        driver.get("https://demoqa.com/select-menu");
+        String result = SelectMenuPage.selectOne(driver, "Ms.");
+        String expectedResult = "Ms.";
+        try {
+            Assert.assertEquals(result, expectedResult);
+        } finally {
+            screenshot();
+        }
+    }
 }
