@@ -12,7 +12,7 @@ import wrapper.WrapperClass;
 @Epic("Тестирование модальных окон")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestModalDialogs extends WrapperClass {
-    @Test(priority = 1)
+    @Test()
     @Feature("Проверка активности кнопки (маленького размера)")
     public void TestSmallModal() {
         driver.get("https://demoqa.com/modal-dialogs");
@@ -25,7 +25,7 @@ public class TestModalDialogs extends WrapperClass {
         }
     }
 
-    @Test(priority = 2)
+    @Test()
     @Feature("Проверка активности кнопки (большого размера)")
     public void TestLargeModal() {
         String result = ModalDialogsPage.checkLargeModal(driver);

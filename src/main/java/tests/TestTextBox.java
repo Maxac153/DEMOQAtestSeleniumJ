@@ -12,7 +12,7 @@ import wrapper.WrapperClass;
 @Epic("Тестирование текстовых полей")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestTextBox extends WrapperClass {
-    @Test(priority = 1)
+    @Test()
     @Feature("Проверка ввода корректных данных")
     public void testTextBox() {
         driver.get("https://demoqa.com/text-box");

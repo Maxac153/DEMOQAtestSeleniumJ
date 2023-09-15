@@ -12,7 +12,7 @@ import wrapper.WrapperClass;
 @Epic("Тестирование изменеия даты")
 public class TestDatePicker extends WrapperClass {
 
-    @Test(priority = 1)
+    @Test()
     @Feature("Проверка даты")
     public void testDate() {
         driver.get("https://demoqa.com/date-picker");
@@ -25,7 +25,7 @@ public class TestDatePicker extends WrapperClass {
         }
     }
 
-    @Test(priority = 2)
+    @Test()
     @Feature("Проверка даты и времени")
     public void testDateTime() {
         String expectedResult = "July 16, 2023 3:14 PM";

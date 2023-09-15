@@ -11,7 +11,7 @@ import wrapper.WrapperClass;
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestAlerts extends WrapperClass {
 
-    @Test(priority = 1)
+    @Test()
     @Feature("Проверка простого оповещения")
     public void testAlertOne() {
         driver.get("https://demoqa.com/alerts");
@@ -24,7 +24,7 @@ public class TestAlerts extends WrapperClass {
         }
     }
 
-    @Test(priority = 2)
+    @Test()
     @Feature("Проверка оповещения который появиться после 5 секунд")
     public void testAlertTwo() {
         String result = AlertsPage.clickButtonToSeeAlertAfterFiveSeconds(driver);
@@ -36,7 +36,7 @@ public class TestAlerts extends WrapperClass {
         }
     }
 
-    @Test(priority = 3)
+    @Test()
     @Feature("Проверка окна подтверждения")
     public void testAlertThree() {
         String result = AlertsPage.clickButtonToSeeConfirmBox(driver);
@@ -48,7 +48,7 @@ public class TestAlerts extends WrapperClass {
         }
     }
 
-    @Test(priority = 4)
+    @Test()
     @Feature("Проверка окна подсказки")
     public void testAlertFour() {
         String result = AlertsPage.clickButtonToSeePromtBox(WrapperClass.driver);

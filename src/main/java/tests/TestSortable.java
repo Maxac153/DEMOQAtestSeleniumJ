@@ -11,7 +11,7 @@ import wrapper.WrapperClass;
 @Epic("Тестирование сортировки")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestSortable extends WrapperClass  {
-    @Test(priority = 1)
+    @Test()
     @Feature("Проверка сортировки листа")
     public void testListClick() {
         driver.get("https://demoqa.com/sortable");
@@ -24,7 +24,7 @@ public class TestSortable extends WrapperClass  {
         }
     }
 
-    @Test(priority = 2)
+    @Test()
     @Feature("Проверка сортировки сетки")
     public void testGridClick() {
         String result = SortablePage.sortableGrid(driver);

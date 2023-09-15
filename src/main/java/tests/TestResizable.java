@@ -12,7 +12,7 @@ import wrapper.WrapperClass;
 @Epic("Тестирование изменения размера")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestResizable extends WrapperClass {
-    @Test(priority = 1)
+    @Test()
     @Feature("Проверка изменения размера в блоке")
     public void testResizableBox() {
         driver.get("https://demoqa.com/resizable");
@@ -25,7 +25,7 @@ public class TestResizable extends WrapperClass {
         }
     }
 
-    @Test(priority = 2)
+    @Test()
     @Feature("Проверка изменения размера без ограничения блока")
     public void testResizable() {
         Dimension result = ResizablePage.checkResizable(driver, 30, 50);

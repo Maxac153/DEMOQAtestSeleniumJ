@@ -13,7 +13,7 @@ import wrapper.WrapperClass;
 public class TestDroppable extends WrapperClass {
 
     @Feature("Проверка простого перетаскивания")
-    @Test(priority = 1)
+    @Test()
     public void TestSimpleDragAndDrop() {
         driver.get("https://demoqa.com/droppable");
         String result = DroppablePage.checkSimpleDragAndDrop(driver);
@@ -25,7 +25,7 @@ public class TestDroppable extends WrapperClass {
         }
     }
 
-    @Test(priority = 2)
+    @Test()
     @Feature("Проверка внешнего перетаскивания")
     public void TestPreventPropogationDragAndDrop1() {
         String result = DroppablePage.checkPreventPropogationDragAndDrop(driver, 170, 70);
@@ -37,7 +37,7 @@ public class TestDroppable extends WrapperClass {
         }
     }
 
-    @Test(priority = 3)
+    @Test()
     @Feature("Проверка внутреннего перетаскивания")
     public void TestPreventPropogationDragAndDrop2() {
         String result = DroppablePage.checkPreventPropogationDragAndDrop(driver, 215, 70);

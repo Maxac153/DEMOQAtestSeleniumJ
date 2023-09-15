@@ -11,7 +11,7 @@ import wrapper.WrapperClass;
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestBrowserWindows extends WrapperClass {
 
-    @Test(priority = 1)
+    @Test()
     @Feature("Проверка новой вкладки")
     public void TestNewTab() {
         driver.get("https://demoqa.com/browser-windows");
@@ -24,7 +24,7 @@ public class TestBrowserWindows extends WrapperClass {
         }
     }
 
-    @Test(priority = 2)
+    @Test()
     @Feature("Проверка нового окна")
     public void TestNewWindow() {
         String result = BrowserWindowsPage.clickButtonNewWindow(driver);
@@ -37,7 +37,7 @@ public class TestBrowserWindows extends WrapperClass {
         }
     }
 
-    @Test(priority = 3)
+    @Test()
     @Feature("Проверка нового окна с сообщением")
     public void TestNewWindowMessage() {
         String result = BrowserWindowsPage.clickButtonNewWindowMessage(driver);

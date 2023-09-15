@@ -11,7 +11,7 @@ import wrapper.WrapperClass;
 @Epic("Тестирование индекатора")
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestProgressBar extends WrapperClass {
-    @Test(priority = 1)
+    @Test()
     @Feature("Проверка загрузки индикатора")
     public void TestProgressBar() {
         driver.get("https://demoqa.com/progress-bar");

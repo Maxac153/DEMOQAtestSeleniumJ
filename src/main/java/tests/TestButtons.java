@@ -12,7 +12,7 @@ import wrapper.WrapperClass;
 @Epic("Тестирование кнопок")
 public class TestButtons extends WrapperClass {
 
-    @Test(priority = 1)
+    @Test()
     @Feature("Проверка двойного нажатия")
     public void testDoubleClick() {
         driver.get("https://demoqa.com/buttons");
@@ -25,7 +25,7 @@ public class TestButtons extends WrapperClass {
         }
     }
 
-    @Test(priority = 2)
+    @Test()
     @Feature("Проверка нажатия правой кнопки")
     public void testRightClick() {
         String result = ButtonsPage.checkRightClickMe(driver);
@@ -38,7 +38,7 @@ public class TestButtons extends WrapperClass {
         }
     }
 
-    @Test(priority = 3)
+    @Test()
     @Feature("Проверка простого нажатия")
     public void testClick() {
         String result = ButtonsPage.checkClickMe(driver);
