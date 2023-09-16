@@ -15,7 +15,7 @@ public class TestDynamicProperties extends WrapperClass  {
     @Feature("Проверка активности кнопки")
     public void TestButtonEnableAfter() {
         driver.get("https://demoqa.com/dynamic-properties");
-        String result = DynamicPropertiesPage.checkButtonEnableAfter(driver);
+        String result = DynamicPropertiesPage.clickButtonEnableAfter(driver);
         String expectedResult = null;
         try {
             Assert.assertEquals(result, expectedResult);
@@ -27,7 +27,7 @@ public class TestDynamicProperties extends WrapperClass  {
     @Test()
     @Feature("Проверка цвета кнопки")
     public void TestColorChange() {
-        String result = DynamicPropertiesPage.checkColorChange(driver);
+        String result = DynamicPropertiesPage.clickColorChange(driver);
         String expectedResult = "rgba(220, 53, 69, 1)";
         try {
             Assert.assertEquals(result, expectedResult);
@@ -39,7 +39,7 @@ public class TestDynamicProperties extends WrapperClass  {
     @Test()
     @Feature("Проверка появления кнопки")
     public void TestVisibleAfter() {
-        String result = DynamicPropertiesPage.checkVisibleAfter(driver);
+        String result = DynamicPropertiesPage.clickVisibleAfter(driver);
         String expectedResult = "Visible After 5 Seconds";
         try {
             Assert.assertEquals(result, expectedResult);

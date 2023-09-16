@@ -23,7 +23,7 @@ public class TestTextBox extends WrapperClass {
         String permanentAddress = "Разнообразный и богатый опыт новая модель" +
                 "организационной деятельности способствует подготовки и реализации форм развития.";
 
-        String result = TextBoxPage.checkTextBox(driver, fullName, Email, currentAddress, permanentAddress);
+        String result = TextBoxPage.clickTextBox(driver, fullName, Email, currentAddress, permanentAddress);
         String expectedResult = "Name:" + fullName + "\n" +
                 "Email:" + Email + "\n" +
                 "Current Address :" + currentAddress + "\n" +

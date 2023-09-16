@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import javax.swing.*;
 
 public class ResizablePage {
-    public static Dimension checkResizableBox(WebDriver driver, int x, int y) {
+    public static Dimension clickResizableBox(WebDriver driver, int x, int y) {
         WebElement element = driver.findElement(ResizableLocators.RESIZABLE_BOX);
         WebElement element1 = driver.findElement(ResizableLocators.RESIZABLE_BOX_HANDLE);
         Actions act = new Actions(driver);
@@ -17,7 +17,7 @@ public class ResizablePage {
         return element.getSize();
     }
 
-    public static Dimension checkResizable(WebDriver driver, int x, int y) {
+    public static Dimension clickResizable(WebDriver driver, int x, int y) {
         WebElement element = driver.findElement(ResizableLocators.RESIZABLE);
         WebElement element1 = driver.findElement(ResizableLocators.RESIZABLE_HANDLE);
         Actions act = new Actions(driver);

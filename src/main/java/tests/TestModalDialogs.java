@@ -16,7 +16,7 @@ public class TestModalDialogs extends WrapperClass {
     @Feature("Проверка активности кнопки (маленького размера)")
     public void TestSmallModal() {
         driver.get("https://demoqa.com/modal-dialogs");
-        String result = ModalDialogsPage.checkSmallModal(driver);
+        String result = ModalDialogsPage.clickSmallModal(driver);
         String expectedResult = "Small Modal";
         try {
             Assert.assertEquals(result, expectedResult);
@@ -28,7 +28,7 @@ public class TestModalDialogs extends WrapperClass {
     @Test()
     @Feature("Проверка активности кнопки (большого размера)")
     public void TestLargeModal() {
-        String result = ModalDialogsPage.checkLargeModal(driver);
+        String result = ModalDialogsPage.clickLargeModal(driver);
         String expectedResult = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
                 "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown " +
                 "printer took a galley of type and scrambled it to make a type specimen book. It has survived " +

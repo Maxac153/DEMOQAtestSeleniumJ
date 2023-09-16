@@ -16,7 +16,7 @@ public class TestDroppable extends WrapperClass {
     @Test()
     public void TestSimpleDragAndDrop() {
         driver.get("https://demoqa.com/droppable");
-        String result = DroppablePage.checkSimpleDragAndDrop(driver);
+        String result = DroppablePage.clickSimpleDragAndDrop(driver);
         String expectedResult = "Dropped!";
         try {
             Assert.assertEquals(result, expectedResult);
@@ -28,7 +28,7 @@ public class TestDroppable extends WrapperClass {
     @Test()
     @Feature("Проверка внешнего перетаскивания")
     public void TestPreventPropogationDragAndDrop1() {
-        String result = DroppablePage.checkPreventPropogationDragAndDrop(driver, 170, 70);
+        String result = DroppablePage.clickPreventPropogationDragAndDrop(driver, 170, 70);
         String expectedResult = "Dropped! Inner droppable (not greedy)";
         try {
             Assert.assertEquals(result, expectedResult);
@@ -40,7 +40,7 @@ public class TestDroppable extends WrapperClass {
     @Test()
     @Feature("Проверка внутреннего перетаскивания")
     public void TestPreventPropogationDragAndDrop2() {
-        String result = DroppablePage.checkPreventPropogationDragAndDrop(driver, 215, 70);
+        String result = DroppablePage.clickPreventPropogationDragAndDrop(driver, 215, 70);
         String expectedResult = "Dropped! Dropped!";
         try {
             Assert.assertEquals(result, expectedResult);

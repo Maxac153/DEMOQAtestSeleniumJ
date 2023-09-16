@@ -4,7 +4,7 @@ import locators.TextBoxLocators;
 import org.openqa.selenium.WebDriver;
 
 public class TextBoxPage {
-    public static String checkTextBox(
+    public static String clickTextBox(
             WebDriver driver, String fullName, String Email, String currentAddress, String permanentAddress) {
         driver.findElement(TextBoxLocators.FULL_NAME).sendKeys(fullName);
         driver.findElement(TextBoxLocators.EMAIL).sendKeys(Email);

@@ -69,21 +69,101 @@ public class SelectMenuPage {
         return select_one.getText();
     }
 
-    public static String selectOldStyleMenu() {
-        return "";
+    public static String getValueColor(String selectElement) {
+        String result;
+        switch (selectElement) {
+            case "Red":
+                result = "red";
+                break;
+            case "Blue":
+                result = "1";
+                break;
+            case "Green":
+                result = "2";
+                break;
+            case "Yellow":
+                result = "3";
+                break;
+            case "Purple":
+                result = "4";
+                break;
+            case "Black":
+                result = "5";
+                break;
+            case "White":
+                result = "6";
+                break;
+            case "Voilet":
+                result = "7";
+                break;
+            case "Indigo":
+                result = "8";
+                break;
+            case "Magenta":
+                result = "9";
+                break;
+            default:
+                result = "10";
+        }
+        return result;
     }
 
-    public static String selectMultiselectDropDown() {
-        // WebElement select_value = driver.findElements(SelectMenuLocators.SELECTS).get(2);
-        return "";
+    public static String selectOldStyleMenu(WebDriver driver, String selectElement) {
+        WebElement select_old_style_select = driver.findElement(SelectMenuLocators.OLD_STYLE_SELECT);
+        select_old_style_select.sendKeys(getValueColor(selectElement));
+        return select_old_style_select.getText();
     }
 
-    public static String deleteItemMultiselectDropDown() {
-        // WebElement select_value = driver.findElements(SelectMenuLocators.SELECTS).get(2);
-        return "";
+    public static By getMultiselectLocator(String selectElement) {
+        By result;
+        switch (selectElement) {
+            case "Green":
+                result = SelectMenuLocators.SELECT_GREEN;
+                break;
+            case "Black":
+                result = SelectMenuLocators.SELECT_BLACK;
+                break;
+            case "Blue":
+                result = SelectMenuLocators.SELECT_BLUE;
+                break;
+            default:
+                result = SelectMenuLocators.SELECT_RED;
+        }
+        return result;
     }
 
-    public static String selectStandardMulti() {
-        return "";
+    public static String selectMultiselectDropDown(WebDriver driver, String selectElement) {
+        WebElement multiselect = driver.findElements(SelectMenuLocators.SELECTS).get(2);
+        multiselect.click();
+        driver.findElement(getMultiselectLocator(selectElement)).click();
+        return multiselect.getText();
+    }
+
+    public static By getDeleteItemLocator(String removeItemName) {
+        By result;
+        switch (removeItemName) {
+            case "Green":
+                result = SelectMenuLocators.REMOVE_GREEN;
+                break;
+            case "Black":
+                result = SelectMenuLocators.REMOVE_BLUE;
+                break;
+            case "Blue":
+                result = SelectMenuLocators.REMOVE_BLACK;
+                break;
+            default:
+                result = SelectMenuLocators.REMOVE_RED;
+        }
+        return result;
+    }
+
+    public static String deleteItemMultiselectDropDown(WebDriver driver, String removeItemName) {
+        driver.findElement(getDeleteItemLocator(removeItemName)).click();
+        return driver.findElements(SelectMenuLocators.SELECTS).get(2).getText();
+    }
+
+    public static String deleteAllItemMultiselectDropDown(WebDriver driver) {
+        driver.findElement(SelectMenuLocators.REMOVE_ALL_COLOR).click();
+        return driver.findElements(SelectMenuLocators.SELECTS).get(2).getText();
     }
 }

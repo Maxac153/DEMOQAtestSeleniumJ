@@ -17,7 +17,7 @@ public class TestDatePicker extends WrapperClass {
     public void testDate() {
         driver.get("https://demoqa.com/date-picker");
         String expectedResult = "07/16/2021";
-        String result = DatePickerPage.checkDate(driver, expectedResult);
+        String result = DatePickerPage.clickDate(driver, expectedResult);
         try {
             Assert.assertEquals(result, expectedResult);
         } finally {
@@ -29,7 +29,7 @@ public class TestDatePicker extends WrapperClass {
     @Feature("Проверка даты и времени")
     public void testDateTime() {
         String expectedResult = "July 16, 2023 3:14 PM";
-        String result = DatePickerPage.checkDateAndTime(driver, expectedResult);
+        String result = DatePickerPage.clickDateAndTime(driver, expectedResult);
         try {
             Assert.assertEquals(result, expectedResult);
         } finally {

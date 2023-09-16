@@ -16,7 +16,7 @@ public class TestProgressBar extends WrapperClass {
     public void TestProgressBar() {
         driver.get("https://demoqa.com/progress-bar");
         try {
-            String result = ProgressBarPage.checkProgressBar(driver);
+            String result = ProgressBarPage.clickProgressBar(driver);
             String expectedResult = "100";
             Assert.assertEquals(result, expectedResult);
         } catch (Exception e) {

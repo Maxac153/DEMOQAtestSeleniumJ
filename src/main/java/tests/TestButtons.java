@@ -16,7 +16,7 @@ public class TestButtons extends WrapperClass {
     @Feature("Проверка двойного нажатия")
     public void testDoubleClick() {
         driver.get("https://demoqa.com/buttons");
-        String result = ButtonsPage.checkDoubleClickMe(driver);
+        String result = ButtonsPage.clickDoubleClickMe(driver);
         String expectedResult = "You have done a double click";
         try {
             Assert.assertEquals(result, expectedResult);
@@ -28,7 +28,7 @@ public class TestButtons extends WrapperClass {
     @Test()
     @Feature("Проверка нажатия правой кнопки")
     public void testRightClick() {
-        String result = ButtonsPage.checkRightClickMe(driver);
+        String result = ButtonsPage.clickRightClickMe(driver);
         String expectedResult = "You have done a right click";
         Assert.assertEquals(result, expectedResult);
         try {
@@ -41,7 +41,7 @@ public class TestButtons extends WrapperClass {
     @Test()
     @Feature("Проверка простого нажатия")
     public void testClick() {
-        String result = ButtonsPage.checkClickMe(driver);
+        String result = ButtonsPage.clickClickMe(driver);
         String expectedResult = "You have done a dynamic click";
         try {
             Assert.assertEquals(result, expectedResult);
