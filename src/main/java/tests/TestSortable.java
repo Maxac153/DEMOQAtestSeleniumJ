@@ -27,6 +27,7 @@ public class TestSortable extends WrapperClass  {
     @Test()
     @Feature("Проверка сортировки сетки")
     public void testGridClick() {
+        driver.get("https://demoqa.com/sortable");
         String result = SortablePage.sortableGrid(driver);
         String expectedResult = "One\n" + "Three\n" + "Four\n" + "Five\n" + "Six\n" +
                 "Seven\n" + "Eight\n" + "Two\n" + "Nine";

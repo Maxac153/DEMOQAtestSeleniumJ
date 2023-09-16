@@ -28,6 +28,7 @@ public class TestModalDialogs extends WrapperClass {
     @Test()
     @Feature("Проверка активности кнопки (большого размера)")
     public void TestLargeModal() {
+        driver.get("https://demoqa.com/modal-dialogs");
         String result = ModalDialogsPage.clickLargeModal(driver);
         String expectedResult = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
                 "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown " +

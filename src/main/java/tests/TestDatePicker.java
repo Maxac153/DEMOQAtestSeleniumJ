@@ -28,6 +28,7 @@ public class TestDatePicker extends WrapperClass {
     @Test()
     @Feature("Проверка даты и времени")
     public void testDateTime() {
+        driver.get("https://demoqa.com/date-picker");
         String expectedResult = "July 16, 2023 3:14 PM";
         String result = DatePickerPage.clickDateAndTime(driver, expectedResult);
         try {

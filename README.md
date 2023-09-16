@@ -14,7 +14,7 @@
 
 ## Окружение
 
-
+Для запуска тестов нужно установить <a href="https://www.google.com/intl/ru_ru/chrome/">Google Chrome</a>
 
 ## Selenium тесты
 

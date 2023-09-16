@@ -28,6 +28,7 @@ public class TestResizable extends WrapperClass {
     @Test()
     @Feature("Проверка изменения размера без ограничения блока")
     public void testResizable() {
+        driver.get("https://demoqa.com/resizable");
         Dimension result = ResizablePage.clickResizable(driver, 30, 50);
         try {
             Assert.assertEquals(250, result.height);

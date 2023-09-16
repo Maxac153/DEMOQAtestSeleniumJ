@@ -27,6 +27,7 @@ public class TestAlerts extends WrapperClass {
     @Test()
     @Feature("Проверка оповещения который появиться после 5 секунд")
     public void testAlertTwo() {
+        driver.get("https://demoqa.com/alerts");
         String result = AlertsPage.clickButtonToSeeAlertAfterFiveSeconds(driver);
         String expectedResult = "This alert appeared after 5 seconds";
         try {
@@ -39,6 +40,7 @@ public class TestAlerts extends WrapperClass {
     @Test()
     @Feature("Проверка окна подтверждения")
     public void testAlertThree() {
+        driver.get("https://demoqa.com/alerts");
         String result = AlertsPage.clickButtonToSeeConfirmBox(driver);
         String expectedResult = "You selected Cancel";
         try {
@@ -51,6 +53,7 @@ public class TestAlerts extends WrapperClass {
     @Test()
     @Feature("Проверка окна подсказки")
     public void testAlertFour() {
+        driver.get("https://demoqa.com/alerts");
         String result = AlertsPage.clickButtonToSeePromtBox(WrapperClass.driver);
         String expectedResult = "You entered Test text";
         try {

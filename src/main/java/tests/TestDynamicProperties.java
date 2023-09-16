@@ -27,6 +27,7 @@ public class TestDynamicProperties extends WrapperClass  {
     @Test()
     @Feature("Проверка цвета кнопки")
     public void TestColorChange() {
+        driver.get("https://demoqa.com/dynamic-properties");
         String result = DynamicPropertiesPage.clickColorChange(driver);
         String expectedResult = "rgba(220, 53, 69, 1)";
         try {
@@ -39,6 +40,7 @@ public class TestDynamicProperties extends WrapperClass  {
     @Test()
     @Feature("Проверка появления кнопки")
     public void TestVisibleAfter() {
+        driver.get("https://demoqa.com/dynamic-properties");
         String result = DynamicPropertiesPage.clickVisibleAfter(driver);
         String expectedResult = "Visible After 5 Seconds";
         try {

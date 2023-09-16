@@ -28,6 +28,7 @@ public class TestDroppable extends WrapperClass {
     @Test()
     @Feature("Проверка внешнего перетаскивания")
     public void TestPreventPropogationDragAndDrop1() {
+        driver.get("https://demoqa.com/droppable");
         String result = DroppablePage.clickPreventPropogationDragAndDrop(driver, 170, 70);
         String expectedResult = "Dropped! Inner droppable (not greedy)";
         try {
@@ -40,6 +41,7 @@ public class TestDroppable extends WrapperClass {
     @Test()
     @Feature("Проверка внутреннего перетаскивания")
     public void TestPreventPropogationDragAndDrop2() {
+        driver.get("https://demoqa.com/droppable");
         String result = DroppablePage.clickPreventPropogationDragAndDrop(driver, 215, 70);
         String expectedResult = "Dropped! Dropped!";
         try {

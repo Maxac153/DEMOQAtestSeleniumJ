@@ -7,8 +7,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 import java.io.ByteArrayInputStream;
@@ -16,8 +14,8 @@ import java.io.ByteArrayInputStream;
 public class WrapperClass {
     public static WebDriver driver;
 
-    @BeforeClass
-    public void setUp() {
+    @BeforeTest
+    public static void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }

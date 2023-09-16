@@ -12,7 +12,7 @@ import wrapper.WrapperClass;
 public class TestBrowserWindows extends WrapperClass {
 
     @Test()
-    @Feature("Проверка новой вкладки")
+    @Feature("Новая вкладка")
     public void TestNewTab() {
         driver.get("https://demoqa.com/browser-windows");
         String result = BrowserWindowsPage.clickButtonNewTab(driver);
@@ -25,7 +25,7 @@ public class TestBrowserWindows extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка нового окна")
+    @Feature("Новое окно")
     public void TestNewWindow() {
         String result = BrowserWindowsPage.clickButtonNewWindow(driver);
         String expectedResult = "This is a sample page";
@@ -38,7 +38,7 @@ public class TestBrowserWindows extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка нового окна с сообщением")
+    @Feature("Новое окно с сообщением")
     public void TestNewWindowMessage() {
         String result = BrowserWindowsPage.clickButtonNewWindowMessage(driver);
         String expectedResult = "Knowledge increases by sharing but not by saving. Please share " +

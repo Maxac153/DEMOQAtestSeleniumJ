@@ -20,7 +20,7 @@ public class TestProgressBar extends WrapperClass {
             String expectedResult = "100";
             Assert.assertEquals(result, expectedResult);
         } catch (Exception e) {
-
+            throw new RuntimeException(e);
         } finally {
             screenshot();
         }
