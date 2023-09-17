@@ -12,7 +12,7 @@ import wrapper.WrapperClass;
 public class TestAlerts extends WrapperClass {
 
     @Test()
-    @Feature("Проверка простого оповещения")
+    @Feature("Простое оповещение")
     public void testAlertOne() {
         driver.get("https://demoqa.com/alerts");
         String result = AlertsPage.clickButtonToSeeAlert(driver);
@@ -25,7 +25,7 @@ public class TestAlerts extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка оповещения который появиться после 5 секунд")
+    @Feature("Оповещение которые появится после 5 секунд")
     public void testAlertTwo() {
         driver.get("https://demoqa.com/alerts");
         String result = AlertsPage.clickButtonToSeeAlertAfterFiveSeconds(driver);
@@ -38,7 +38,7 @@ public class TestAlerts extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка окна подтверждения")
+    @Feature("Окна подтверждения")
     public void testAlertThree() {
         driver.get("https://demoqa.com/alerts");
         String result = AlertsPage.clickButtonToSeeConfirmBox(driver);

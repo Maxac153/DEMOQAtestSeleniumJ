@@ -13,7 +13,7 @@ import wrapper.WrapperClass;
 public class TestButtons extends WrapperClass {
 
     @Test()
-    @Feature("Проверка двойного нажатия")
+    @Feature("Двойное нажатие")
     public void testDoubleClick() {
         driver.get("https://demoqa.com/buttons");
         String result = ButtonsPage.clickDoubleClickMe(driver);
@@ -26,7 +26,7 @@ public class TestButtons extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка нажатия правой кнопки")
+    @Feature("Нажатие правой кнопой")
     public void testRightClick() {
         driver.get("https://demoqa.com/buttons");
         String result = ButtonsPage.clickRightClickMe(driver);
@@ -40,7 +40,7 @@ public class TestButtons extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка простого нажатия")
+    @Feature("Простое нажатие")
     public void testClick() {
         driver.get("https://demoqa.com/buttons");
         String result = ButtonsPage.clickClickMe(driver);

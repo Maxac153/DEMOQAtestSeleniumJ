@@ -9,7 +9,7 @@ import wrapper.WrapperClass;
 
 public class TestSelectMenu extends WrapperClass {
     @Test()
-    @Feature("Проверка Select Menu")
+    @Feature("Select Menu")
     public void testSelectValue() {
         driver.get("https://demoqa.com/select-menu");
         String result = SelectMenuPage.selectValue(driver, "Group 2, option 1");
@@ -22,7 +22,7 @@ public class TestSelectMenu extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка Select One")
+    @Feature("Select One")
     public void testSelectOne() {
         driver.get("https://demoqa.com/select-menu");
         String result = SelectMenuPage.selectOne(driver, "Ms.");
@@ -35,7 +35,7 @@ public class TestSelectMenu extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка Select Old Style Menu")
+    @Feature("Select Old Style Menu")
     public void testSelectOldStyleMenu() {
         driver.get("https://demoqa.com/select-menu");
         String result = SelectMenuPage.selectOldStyleMenu(driver, "Green");
@@ -48,7 +48,7 @@ public class TestSelectMenu extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка Multiselect Drop Down")
+    @Feature("Multiselect Drop Down")
     public void testMultiselectDropDown() {
         driver.get("https://demoqa.com/select-menu");
         String result = SelectMenuPage.selectMultiselectDropDown(driver, "Black");

@@ -13,7 +13,7 @@ import wrapper.WrapperClass;
 public class TestDatePicker extends WrapperClass {
 
     @Test()
-    @Feature("Проверка даты")
+    @Feature("Дата")
     public void testDate() {
         driver.get("https://demoqa.com/date-picker");
         String expectedResult = "07/16/2021";
@@ -26,7 +26,7 @@ public class TestDatePicker extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка даты и времени")
+    @Feature("Дата и время")
     public void testDateTime() {
         driver.get("https://demoqa.com/date-picker");
         String expectedResult = "July 16, 2023 3:14 PM";

@@ -12,7 +12,7 @@ import wrapper.WrapperClass;
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestProgressBar extends WrapperClass {
     @Test()
-    @Feature("Проверка загрузки индикатора")
+    @Feature("Загрузка индикатора")
     public void TestProgressBar() {
         driver.get("https://demoqa.com/progress-bar");
         try {

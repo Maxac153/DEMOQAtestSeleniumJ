@@ -12,7 +12,7 @@ import wrapper.WrapperClass;
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestDroppable extends WrapperClass {
 
-    @Feature("Проверка простого перетаскивания")
+    @Feature("Простое перетаскивания")
     @Test()
     public void TestSimpleDragAndDrop() {
         driver.get("https://demoqa.com/droppable");
@@ -26,7 +26,7 @@ public class TestDroppable extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка внешнего перетаскивания")
+    @Feature("Внешнее перетаскивания")
     public void TestPreventPropogationDragAndDrop1() {
         driver.get("https://demoqa.com/droppable");
         String result = DroppablePage.clickPreventPropogationDragAndDrop(driver, 170, 70);
@@ -39,7 +39,7 @@ public class TestDroppable extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка внутреннего перетаскивания")
+    @Feature("Внутреннее перетаскивание")
     public void TestPreventPropogationDragAndDrop2() {
         driver.get("https://demoqa.com/droppable");
         String result = DroppablePage.clickPreventPropogationDragAndDrop(driver, 215, 70);

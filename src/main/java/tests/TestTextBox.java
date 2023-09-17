@@ -13,7 +13,7 @@ import wrapper.WrapperClass;
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestTextBox extends WrapperClass {
     @Test()
-    @Feature("Проверка ввода корректных данных")
+    @Feature("Ввод корректных данных")
     public void testTextBox() {
         driver.get("https://demoqa.com/text-box");
         String fullName = "tur123";

@@ -13,7 +13,7 @@ import wrapper.WrapperClass;
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestModalDialogs extends WrapperClass {
     @Test()
-    @Feature("Проверка активности кнопки (маленького размера)")
+    @Feature("Активность кнопки (маленького размера)")
     public void TestSmallModal() {
         driver.get("https://demoqa.com/modal-dialogs");
         String result = ModalDialogsPage.clickSmallModal(driver);
@@ -26,7 +26,7 @@ public class TestModalDialogs extends WrapperClass {
     }
 
     @Test()
-    @Feature("Проверка активности кнопки (большого размера)")
+    @Feature("Активность кнопки (большого размера)")
     public void TestLargeModal() {
         driver.get("https://demoqa.com/modal-dialogs");
         String result = ModalDialogsPage.clickLargeModal(driver);

@@ -12,7 +12,7 @@ import wrapper.WrapperClass;
 @Epic("Тестирование динамических свойст")
 public class TestDynamicProperties extends WrapperClass  {
     @Test()
-    @Feature("Проверка активности кнопки")
+    @Feature("Активной кнопки")
     public void TestButtonEnableAfter() {
         driver.get("https://demoqa.com/dynamic-properties");
         String result = DynamicPropertiesPage.clickButtonEnableAfter(driver);
@@ -25,7 +25,7 @@ public class TestDynamicProperties extends WrapperClass  {
     }
 
     @Test()
-    @Feature("Проверка цвета кнопки")
+    @Feature("Цвет кнопки")
     public void TestColorChange() {
         driver.get("https://demoqa.com/dynamic-properties");
         String result = DynamicPropertiesPage.clickColorChange(driver);
@@ -38,7 +38,7 @@ public class TestDynamicProperties extends WrapperClass  {
     }
 
     @Test()
-    @Feature("Проверка появления кнопки")
+    @Feature("Появления кнопки")
     public void TestVisibleAfter() {
         driver.get("https://demoqa.com/dynamic-properties");
         String result = DynamicPropertiesPage.clickVisibleAfter(driver);

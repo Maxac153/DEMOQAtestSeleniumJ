@@ -12,7 +12,7 @@ import wrapper.WrapperClass;
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class TestSortable extends WrapperClass  {
     @Test()
-    @Feature("Проверка сортировки листа")
+    @Feature("Сортировка листа")
     public void testListClick() {
         driver.get("https://demoqa.com/sortable");
         String result = SortablePage.sortableItem(driver);
@@ -25,7 +25,7 @@ public class TestSortable extends WrapperClass  {
     }
 
     @Test()
-    @Feature("Проверка сортировки сетки")
+    @Feature("Сортировка сетки")
     public void testGridClick() {
         driver.get("https://demoqa.com/sortable");
         String result = SortablePage.sortableGrid(driver);
