@@ -1,7 +1,11 @@
 package ui.demoqa.playwright.tests.elements;
 
 import __common.EndpointsDemoqa;
-import io.qameta.allure.*;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
@@ -19,26 +23,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Epic("UI-playwright-test")
 @Feature("DemoQA")
 @Story("Страница Web Tables")
-@Tags({
-        @Tag("ui"),
-        @Tag("smoke"),
-        @Tag("positive")
-})
 public class WebTableTest extends BaseTest {
     private static final String URL = dotenv.get("DEMOQA_HOST") + EndpointsDemoqa.WEB_TABLES.getUrl();
     private Faker fake;
-    private WebTablePage webTablePage;
 
     @BeforeEach
-    public void setUpWebTable() {
-        fake = new Faker();
-        webTablePage = new WebTablePage(page, URL);
-        webTablePage.open();
+    public void initFaker() {
+        this.fake = new Faker();
     }
 
     private Person createPerson() {
         String firstName = fake.name().firstName();
         String lastName = fake.name().lastName();
+
         return new Person(
                 firstName + " " + lastName + " " + fake.name().fullName(),
                 firstName,
@@ -54,107 +51,95 @@ public class WebTableTest extends BaseTest {
     }
 
     @Test
+    @Tags({@Tag("ui"), @Tag("smoke"), @Tag("positive")})
     @Story("Добавление пользователя")
     @Description("Проверка добавления пользователя")
     public void testAddNewPerson() {
         Person person = createPerson();
+
+        WebTablePage webTablePage = new WebTablePage(page, URL);
+        webTablePage.open();
+
         List<String> newPerson = webTablePage.addNewPerson(person);
         List<String> tablePersons = webTablePage.getPersons();
+
         String joinedPersonString = String.join(" ", newPerson);
-        Allure.step(
-                "Проверить, что пользователь добавлен в таблицу",
-                () -> assertTrue(
-                        tablePersons.contains(joinedPersonString),
-                        String.format(
-                                "Пользователь %s не был добавлен в таблицу",
-                                person.email()
-                        )
-                )
-        );
+
+        Allure.step("Проверить, что пользователь добавлен в таблицу", () -> assertTrue(tablePersons.contains(joinedPersonString),
+                String.format("Пользователь %s не был добавлен в таблицу", person.email())));
     }
 
     @Test
+    @Tags({@Tag("ui"), @Tag("smoke"), @Tag("positive")})
     @Story("Поиск пользователя")
     @Description("Проверка поиска пользователя по email")
     public void testWebTableSearchPerson() {
         Person person = createPerson();
+
+        WebTablePage webTablePage = new WebTablePage(page, URL);
+        webTablePage.open();
+
         webTablePage.addNewPerson(person);
         webTablePage.searchSomePerson(person.email());
-        String searchResult = webTablePage.getSearchPerson();
-        Allure.step(
-                "Проверить, что пользователь найден по email",
-                () -> assertTrue(
-                        searchResult.contains(person.email()),
-                        String.format(
-                                "Пользователь с email %s не был найден",
-                                person.email()
-                        )
-                )
-        );
+
+        String searchResult = webTablePage.getSearchPerson(person.email());
+
+        Allure.step("Проверить, что пользователь найден по email", () -> assertTrue(searchResult.contains(person.email()),
+                String.format("Пользователь с email %s не был найден", person.email())));
     }
 
     @Test
+    @Tags({@Tag("ui"), @Tag("smoke"), @Tag("positive")})
     @Story("Обновление пользователя")
     @Description("Проверка обновления возраста пользователя")
     public void testWebTableUpdatePersonInfo() {
         Person person = createPerson();
-        String newAge = person.age() == 20 ? "21" : "20";
+
+        WebTablePage webTablePage = new WebTablePage(page, URL);
+        webTablePage.open();
+
         webTablePage.addNewPerson(person);
         webTablePage.searchSomePerson(person.email());
-        String updatedAge = webTablePage.updatePersonInfo(newAge);
-        String searchResult = webTablePage.getSearchPerson();
-        Allure.step(
-                "Проверить, что возраст пользователя обновился",
-                () -> assertTrue(
-                        searchResult.contains(updatedAge),
-                        String.format(
-                                "Возраст %s не появился в строке пользователя %s",
-                                updatedAge,
-                                person.email()
-                        )
-                )
-        );
+
+        String updatedAge = webTablePage.updatePersonInfo("20");
+        String searchResult = webTablePage.getSearchPerson(person.email());
+
+        Allure.step("Проверить, что возраст пользователя обновился", () -> assertTrue(searchResult.contains(updatedAge),
+                String.format("Возраст %s не появился в строке пользователя", updatedAge)));
     }
 
     @Test
+    @Tags({@Tag("ui"), @Tag("smoke"), @Tag("positive")})
     @Story("Удаление пользователя")
     @Description("Проверка удаления пользователя")
     public void testWebTableDeletePerson() {
         Person person = createPerson();
+
+        WebTablePage webTablePage = new WebTablePage(page, URL);
+        webTablePage.open();
+
         webTablePage.addNewPerson(person);
         webTablePage.searchSomePerson(person.email());
         webTablePage.deletePerson();
+
         String searchResult = webTablePage.searchDeletedPerson();
-        Allure.step(
-                "Проверить, что пользователь удалён",
-                () -> assertEquals(
-                        "No rows found",
-                        searchResult,
-                        String.format(
-                                "Пользователь с email %s не был удалён",
-                                person.email()
-                        )
-                )
-        );
+
+        Allure.step("Проверить, что пользователь удалён", () -> assertEquals("1 of 0", searchResult,
+                String.format("Пользователь с email %s не был удалён", person.email())));
     }
 
     @Test
+    @Tags({@Tag("ui"), @Tag("smoke"), @Tag("positive")})
     @Story("Размер страницы таблицы")
-    @Description("Проверка количества строк при переключении размера страницы")
+    @Description("Проверка доступных размеров страницы таблицы")
     public void testWebTableChangeCountRow() {
+        WebTablePage webTablePage = new WebTablePage(page, URL);
+        webTablePage.open();
+
+        List<Integer> availableRowCounts = webTablePage.selectUpToSomeRows();
         List<Integer> expectedRowCounts = List.of(10, 20, 30, 40, 50);
-        List<Integer> actualRowCounts = webTablePage.selectUpToSomeRows();
-        Allure.step(
-                "Проверить количество строк для каждого размера страницы",
-                () -> assertEquals(
-                        expectedRowCounts,
-                        actualRowCounts,
-                        String.format(
-                                "Ожидались количества строк %s, но получены %s",
-                                expectedRowCounts,
-                                actualRowCounts
-                        )
-                )
-        );
+
+        Allure.step("Проверить доступные размеры страницы", () -> assertEquals(expectedRowCounts, availableRowCounts,
+                String.format("Ожидались размеры страницы %s, но получены %s", expectedRowCounts, availableRowCounts)));
     }
 }

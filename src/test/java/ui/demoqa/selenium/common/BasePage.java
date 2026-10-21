@@ -344,7 +344,7 @@ public class BasePage {
             int timeoutSeconds
     ) {
         wait(timeoutSeconds).until((ExpectedCondition<Boolean>) driver -> {
-            String actualValue = driver
+            String actualValue = Objects.requireNonNull(driver)
                     .findElement(locator)
                     .getDomAttribute(attribute);
 

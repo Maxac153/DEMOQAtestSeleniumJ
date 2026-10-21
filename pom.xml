@@ -4,18 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.example</groupId>
     <artifactId>DEMOQAtestSeleniumJ</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <name>DEMOQAtestSeleniumJ</name>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <selenium.version>4.49.0</selenium.version>
         <playwright.version>1.63.0</playwright.version>
         <rest-assured.version>6.1.0</rest-assured.version>
@@ -27,6 +24,7 @@
         <junit.bom.version>5.14.3</junit.bom.version>
         <webdrivermanager.version>5.9.2</webdrivermanager.version>
         <dotenv.java.varsion>3.1.0</dotenv.java.varsion>
+        <jackson.databind.version>2.17.2</jackson.databind.version>
     </properties>
 
     <dependencyManagement>
@@ -94,6 +92,12 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.databind.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

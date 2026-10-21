@@ -13,11 +13,12 @@ public class WebTableLocators {
     public static final String SUBMIT = "button[id='submit']";
 
     // Table
-    public static final String FULL_PEOPLE_LIST = "div.rt-tbody div.rt-tr-group";
+    public static final String FULL_PEOPLE_LIST = "table tbody tr";
+    public static final String ROWS = "table tbody tr:has(span[id^='delete-record'])";
     public static final String SEARCH_INPUT = "input[id='searchBox']";
     public static final String DELETE_BUTTON = "span[title='Delete']";
     public static final String UPDATE_BUTTON = "span[title='Edit']";
-    public static final String ROW_PARENT = "xpath=./ancestor::div[contains(@class, 'rt-tr')]";
-    public static final String NO_ROWS_FOUND = "div.rt-noData";
+    public static final String ROW_WITH_DELETE = "tbody tr:has(span[title='Delete'])";
+    public static final String NO_ROWS_FOUND = "//strong";
     public static final String COUNT_ROW_LIST = "select[aria-label='rows per page']";
 }

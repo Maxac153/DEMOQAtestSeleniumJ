@@ -9,7 +9,6 @@ import ui.demoqa.playwright.models.elements.Person;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class WebTablePage extends BasePage {
 
@@ -35,12 +34,17 @@ public class WebTablePage extends BasePage {
                 person.email(), String.valueOf(person.salary()), person.department());
     }
 
-    @Step("Получение всех пользователей")
+    @Step("Получить список пользователей")
     public List<String> getPersons() {
-        List<Locator> peopleList = elementsAreVisible(WebTableLocators.FULL_PEOPLE_LIST);
-        return peopleList.stream()
-                .map(item -> item.innerText().replace("\n", " "))
-                .collect(Collectors.toList());
+        Locator rows = page.locator(WebTableLocators.ROWS);
+        rows.first().waitFor();
+
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < rows.count(); i++) {
+            List<String> cells = rows.nth(i).locator("td").allInnerTexts();
+            result.add(String.join(" ", cells.subList(0, 6)).trim());
+        }
+        return result;
     }
 
     @Step("Поиск пользователя")
@@ -48,18 +52,24 @@ public class WebTablePage extends BasePage {
         elementIsVisible(WebTableLocators.SEARCH_INPUT).fill(keyWord);
     }
 
-    @Step("Поиск пользователя")
-    public String getSearchPerson() {
-        // Явно ждем, что строка таблицы с результатами поиска стала видимой
-        Locator row = elementIsVisible("xpath=//div[contains(@class, 'rt-tr') and .//span[@title='Delete']]");
+    @Step("Получить строку пользователя")
+    public String getSearchPerson(String email) {
+        Locator row = page.locator(WebTableLocators.ROW_WITH_DELETE)
+                .filter(new Locator.FilterOptions().setHasText(email))
+                .first();
+        row.waitFor(new Locator.WaitForOptions().setTimeout(10000));
         return row.innerText();
     }
 
     @Step("Обновить личные данные")
     public String updatePersonInfo(String age) {
         elementIsVisible(WebTableLocators.UPDATE_BUTTON).click();
-        elementIsVisible(WebTableLocators.AGE_INPUT).fill(age);
+        Locator ageInput = elementIsVisible(WebTableLocators.AGE_INPUT);
+        ageInput.fill(age);
         elementIsVisible(WebTableLocators.SUBMIT).click();
+
+        // дождаться закрытия модалки
+        elementIsInvisible(WebTableLocators.REGISTRATION_FORM, 10);
         return age;
     }
 

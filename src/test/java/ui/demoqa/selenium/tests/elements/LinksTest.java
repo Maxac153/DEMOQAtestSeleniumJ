@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-@Epic("UI-selenium-test") // Аналог parent_suite в иерархии Allure Java
+@Epic("UI-selenium-test")
 @Feature("DemoQA")
 @Story("Страница Links")
 public class LinksTest extends BaseTest {

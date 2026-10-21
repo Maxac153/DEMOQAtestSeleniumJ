@@ -1,17 +1,15 @@
 package ui.demoqa.selenium.pages.elements;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import ui.demoqa.selenium.common.BasePage;
 import ui.demoqa.selenium.locators.elements.WebTableLocators;
 import ui.demoqa.selenium.models.elements.Person;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class WebTablePage extends BasePage {
 
@@ -31,18 +29,21 @@ public class WebTablePage extends BasePage {
         elementIsVisible(WebTableLocators.SUBMIT).click();
 
         // Ожидание исчезновения формы
-        wait(10).until(ExpectedConditions.invisibilityOfElementLocated(WebTableLocators.REGISTRATION_FORM));
+        elementIsInvisible(WebTableLocators.REGISTRATION_FORM, 10);
 
         return List.of(person.firstname(), person.lastname(), String.valueOf(person.age()),
                 person.email(), String.valueOf(person.salary()), person.department());
     }
 
-    @Step("Получение всех пользователей")
+    @Step("Получить список пользователей")
     public List<String> getPersons() {
-        List<WebElement> peopleList = elementsAreVisible(WebTableLocators.FULL_PEOPLE_LIST);
-        return peopleList.stream()
-                .map(item -> item.getText().replace("\n", " "))
-                .collect(Collectors.toList());
+        elementIsVisible(WebTableLocators.ROWS);
+
+        List<String> result = new ArrayList<>();
+        for (WebElement row : driver.findElements(WebTableLocators.ROWS)) {
+            result.add(rowToString(row));
+        }
+        return result;
     }
 
     @Step("Поиск пользователя")
@@ -50,11 +51,10 @@ public class WebTablePage extends BasePage {
         elementIsVisible(WebTableLocators.SEARCH_INPUT).sendKeys(keyWord);
     }
 
-    @Step("Поиск пользователя")
-    public String getSearchPerson() {
-        // Явно ждем, что строка таблицы с результатами поиска стала видимой
-        WebElement row = elementIsVisible(By.xpath("//div[contains(@class, 'rt-tr') and .//span[@title='Delete']]"));
-        return row.getText();
+    @Step("Получить строку пользователя")
+    public String getSearchPerson(String email) {
+        WebElement row = elementIsVisible(WebTableLocators.rowWithEmail(email));
+        return rowToString(row);
     }
 
     @Step("Обновить личные данные")
@@ -64,6 +64,9 @@ public class WebTablePage extends BasePage {
         ageInput.clear();
         ageInput.sendKeys(age);
         elementIsVisible(WebTableLocators.SUBMIT).click();
+
+        // дождаться закрытия модалки
+        elementIsInvisible(WebTableLocators.REGISTRATION_FORM, 10);
         return age;
     }
 
@@ -74,7 +77,7 @@ public class WebTablePage extends BasePage {
 
     @Step("Поиск удалённого пользователя")
     public String searchDeletedPerson() {
-        return driver.findElement(WebTableLocators.NO_ROWS_FOUND).getText();
+        return elementIsVisible(WebTableLocators.NO_ROWS_FOUND).getText();
     }
 
     @Step("Выбрать до определенного количества строк")
@@ -83,10 +86,9 @@ public class WebTablePage extends BasePage {
         List<Integer> data = new ArrayList<>();
 
         for (int x : counts) {
-            WebElement countRowButton = elementIsVisible(WebTableLocators.COUNT_ROW_LIST);
-            goToElement(countRowButton);
-            countRowButton.click();
-            elementIsVisible(By.cssSelector(String.format("option[value='%d']", x))).click();
+            WebElement countRowSelect = elementIsVisible(WebTableLocators.COUNT_ROW_LIST);
+            goToElement(countRowSelect);
+            new Select(countRowSelect).selectByValue(String.valueOf(x));
             data.add(checkCountRows());
         }
         return data;
@@ -94,7 +96,16 @@ public class WebTablePage extends BasePage {
 
     @Step("Проверить количество строк")
     public int checkCountRows() {
-        List<WebElement> listRows = wait(10).until(ExpectedConditions.presenceOfAllElementsLocatedBy(WebTableLocators.FULL_PEOPLE_LIST));
-        return listRows.size();
+        return elementsArePresent(WebTableLocators.FULL_PEOPLE_LIST, 10).size();
+    }
+
+    // Первые 6 колонок (без Action), через пробел
+    private String rowToString(WebElement row) {
+        List<WebElement> cells = row.findElements(WebTableLocators.CELLS);
+        List<String> values = new ArrayList<>();
+        for (int i = 0; i < Math.min(6, cells.size()); i++) {
+            values.add(cells.get(i).getText().trim());
+        }
+        return String.join(" ", values);
     }
 }

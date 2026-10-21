@@ -9,8 +9,7 @@ public final class DriverFactory {
 
     public static WebDriver create() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new", "--no-sandbox",
-                "--disable-dev-shm-usage", "--window-size=1920,1080");
+        options.addArguments("--headless=new", "--no-sandbox", "--disable-dev-shm-usage", "--window-size=1920,1080");
         WebDriver driver = new ChromeDriver(options); // Selenium Manager сам скачает драйвер
         DRIVER.set(driver);
         return driver;

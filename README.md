@@ -30,3 +30,11 @@ Report Selenium (Allure)
 
 <img src="./img/AllureReportSeleniumAllTests.png" width="700" height="400">
 <img src="./img/AllureReportSeleniumOneTest.png" width="700" height="400">
+
+## Планы
+
+- [ ] Дочинить тесты чтобы нормально отрабатывали при запуске через мавен
+- [ ] Поправить faker
+- [ ] Переделать Readme файл
+- [ ] Настроить параллельный запуск в несколько потоков
+- [ ] Починить max size у playwright

@@ -78,7 +78,7 @@ public class WebTableTest extends BaseTest {
         webTablePage.addNewPerson(person);
         webTablePage.searchSomePerson(person.email());
 
-        String searchResult = webTablePage.getSearchPerson();
+        String searchResult = webTablePage.getSearchPerson(person.email());
 
         Allure.step("Проверить, что пользователь найден по email", () -> assertTrue(searchResult.contains(person.email()),
                 String.format("Пользователь с email %s не был найден", person.email())));
@@ -98,9 +98,10 @@ public class WebTableTest extends BaseTest {
         webTablePage.searchSomePerson(person.email());
 
         String updatedAge = webTablePage.updatePersonInfo("20");
-        String searchResult = webTablePage.getSearchPerson();
+        String searchResult = webTablePage.getSearchPerson(person.email());
 
-        Allure.step("Проверить, что возраст пользователя обновился", () -> assertTrue(searchResult.contains(updatedAge),
+        Allure.step("Проверить, что возраст пользователя обновился", () -> assertTrue(
+                searchResult.contains(updatedAge + " " + person.email()),
                 String.format("Возраст %s не появился в строке пользователя", updatedAge)));
     }
 
@@ -120,7 +121,7 @@ public class WebTableTest extends BaseTest {
 
         String searchResult = webTablePage.searchDeletedPerson();
 
-        Allure.step("Проверить, что пользователь удалён", () -> assertEquals("No rows found", searchResult,
+        Allure.step("Проверить, что пользователь удалён", () -> assertEquals("1 of 0", searchResult,
                 String.format("Пользователь с email %s не был удалён", person.email())));
     }
 

@@ -15,11 +15,17 @@ public class WebTableLocators {
     public static final By SUBMIT = By.cssSelector("button[id='submit']");
 
     // Table
-    public static final By FULL_PEOPLE_LIST = By.cssSelector("div.rt-tbody div.rt-tr-group");
+    public static final By FULL_PEOPLE_LIST = By.cssSelector("table tbody tr");
+    public static final By ROWS = By.cssSelector("table tbody tr:has(span[id^='delete-record'])");
+    public static final By CELLS = By.tagName("td");
     public static final By SEARCH_INPUT = By.cssSelector("input[id='searchBox']");
     public static final By DELETE_BUTTON = By.cssSelector("span[title='Delete']");
     public static final By UPDATE_BUTTON = By.cssSelector("span[title='Edit']");
-    public static final By ROW_PARENT = By.xpath("./ancestor::div[contains(@class, 'rt-tr')]");
-    public static final By NO_ROWS_FOUND = By.cssSelector("div.rt-noData");
+    public static final By NO_ROWS_FOUND = By.xpath("//strong");
     public static final By COUNT_ROW_LIST = By.cssSelector("select[aria-label='rows per page']");
+
+    // Строка с кнопкой Delete, содержащая email
+    public static By rowWithEmail(String email) {
+        return By.xpath("//tbody//tr[.//span[@title='Delete'] and contains(., '" + email + "')]");
+    }
 }
