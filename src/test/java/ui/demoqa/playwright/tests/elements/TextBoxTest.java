@@ -1,31 +1,31 @@
 package ui.demoqa.playwright.tests.elements;
 
-
 import __common.EndpointsDemoqa;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ui.demoqa.playwright.common.BaseTest;
 import ui.demoqa.playwright.pages.elements.TextBoxPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Epic("DEMOQA")
-@Feature("Elements")
-class TextBoxTest extends BaseTest {
+@Epic("UI-playwright-test")
+@Feature("DemoQA")
+@Story("Страница Text Box")
+public class TextBoxTest extends BaseTest {
     private static final String URL = dotenv.get("DEMOQA_HOST") + EndpointsDemoqa.TEXT_BOX.getUrl();
     // TODO убрать Faker в BaseTest
     private static final Faker FAKER = new Faker();
 
     @Test
-    @Tag("smoke")
-    @Story("Text Box")
     @DisplayName("Форма Text Box отображает введённые данные")
-    void shouldShowSubmittedData() {
+    @Tags({@Tag("ui"), @Tag("smoke"), @Tag("positive")})
+    @Story("Отправка формы Text Box")
+    @Description("Проверка, что после отправки формы введённое имя отображается в блоке вывода")
+    public void testTextBoxShowsSubmittedData() {
         String name = FAKER.name().fullName();
 
         TextBoxPage textBoxPage = new TextBoxPage(page, URL);
@@ -37,7 +37,10 @@ class TextBoxTest extends BaseTest {
                 FAKER.address().fullAddress()
         );
         textBoxPage.submit();
+
         String shown = textBoxPage.outputName();
-        assertTrue(shown.contains(name), "В выводе нет имени: " + shown);
+
+        Allure.step("Проверить, что в выводе отображается введённое имя", () -> assertTrue(shown.contains(name),
+                String.format("Ожидалось, что вывод содержит имя '%s', но получен '%s'", name, shown)));
     }
 }

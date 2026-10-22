@@ -1,40 +1,73 @@
-#  UsersTestSelemium
+# DEMOQA test Selenium (Java)
 
-### Описание
+## Описание
 
-Цель проекта: получение навыков в написание автоматизированных авто тестов на Java. 
-Сайт для тестирования (<a href="https://demoqa.com/">DEMOQA</a>).
+Цель проекта: получение навыков в написании автоматизированных тестов на Java.
+
+Сайт для тестирования ([DEMOQA](https://demoqa.com)).
 
 ## Технологии
 
 - Java
 - Selenium
-- TestNG
+- junit
 - Allure
+- Maven
 
 ## Окружение
 
-Для запуска тестов нужно установить <a href="https://www.google.com/intl/ru_ru/chrome/">Google Chrome</a>
+Для того чтобы запустить тесты, надо установить JDK, Maven и браузер Google Chrome:
+
+```bash
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+apt install -y ./google-chrome-stable_current_amd64.deb
+```
+
+## Состав проекта
+
+- Папка (src/test) с Java тестами
+- Папка (img) со скриншотами отчётов
+- Файл (testng.xml) с настройками запуска TestNG
+- Файл (pom.xml) с зависимостями проекта
 
 ## Selenium тесты
 
-Пример запуска Selenium тестов (TestNG):
+Запуск тестов
 
-<img src="./img/TestsSelenium.png" width="700" height="400">
+```bash
+mvn clean test -DHEADLESS=false
+```
 
-Report Selenium (TestNG)
+Запуск с указанием конкретного набора тестов:
 
-<img src="./img/TestsngReportSelenium.png" width="700" height="400">
+```bash
+mvn clean test -DsuiteXmlFile=testng.xml
+```
 
-Report Selenium (Allure)
+### TestNG отчёт
 
-<img src="./img/AllureReportSeleniumAllTests.png" width="700" height="400">
-<img src="./img/AllureReportSeleniumOneTest.png" width="700" height="400">
+Пример запуска Selenium тестов (TestNG)
 
-## Планы
+![TestsSelenium.png](img/TestsSelenium.png)
 
-- [ ] Дочинить тесты чтобы нормально отрабатывали при запуске через мавен
+Отчёт TestNG
+
+![TestsngReportSelenium.png](img/TestsngReportSelenium.png)
+
+### Allure отчёт
+
+Пример отчёта по Selenium тестам
+
+![AllureReportSeleniumAllTests.png](img/AllureReportSeleniumAllTests.png)
+
+![AllureReportSeleniumOneTest.png](img/AllureReportSeleniumOneTest.png)
+
+Открыть отчёт
+
+```bash
+allure serve target/allure-results
+```
+
+## TODO
+
 - [ ] Поправить faker
-- [ ] Переделать Readme файл
-- [ ] Настроить параллельный запуск в несколько потоков
-- [ ] Починить max size у playwright

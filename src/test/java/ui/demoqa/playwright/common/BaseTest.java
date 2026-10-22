@@ -2,9 +2,7 @@ package ui.demoqa.playwright.common;
 
 import com.microsoft.playwright.*;
 import io.github.cdimascio.dotenv.Dotenv;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -12,9 +10,8 @@ import java.util.List;
 
 @ExtendWith(AllureReportExtension.class)
 public abstract class BaseTest {
-    private static Playwright playwright;
-    private static Browser browser;
-
+    private Playwright playwright;
+    private Browser browser;
     private BrowserContext context;
     protected Page page;
 
@@ -33,43 +30,19 @@ public abstract class BaseTest {
         return value != null ? value : defaultValue;
     }
 
-    @BeforeAll
-    static void launchBrowser() {
+    private Browser launchBrowser(Playwright pw, boolean isHeadless) {
         String browserName = getEnv("BROWSER", "chrome").toLowerCase();
-        boolean isHeadless = Boolean.parseBoolean(getEnv("HEADLESS", "false"));
+        BrowserType.LaunchOptions options = new BrowserType.LaunchOptions().setHeadless(isHeadless);
+        List<String> args = List.of("--no-sandbox", "--start-maximized");
 
-        playwright = Playwright.create();
-
-        BrowserType.LaunchOptions options = new BrowserType.LaunchOptions()
-                .setHeadless(isHeadless);
-
-        switch (browserName) {
-            case "chrome":
-                browser = playwright.chromium().launch(options
-                        .setArgs(List.of("--no-sandbox", "--start-maximized")));
-                break;
-
-            case "edge":
-                browser = playwright.chromium().launch(options
-                        .setChannel("msedge")
-                        .setArgs(List.of("--no-sandbox", "--start-maximized")));
-                break;
-
-            case "firefox":
-                browser = playwright.firefox().launch(options);
-                break;
-
-            case "safari":
-                // Playwright не запускает настоящий Safari, используется WebKit
-                browser = playwright.webkit().launch(options);
-                break;
-
-            default:
-                playwright.close();
-                throw new IllegalArgumentException(String.format(
-                        "Браузер '%s' не поддерживается. Выберите chrome, firefox, edge или safari.", browserName
-                ));
-        }
+        return switch (browserName) {
+            case "chrome" -> pw.chromium().launch(options.setArgs(args));
+            case "edge" -> pw.chromium().launch(options.setChannel("msedge").setArgs(args));
+            case "firefox" -> pw.firefox().launch(options);
+            case "safari" -> pw.webkit().launch(options); // это WebKit, не настоящий Safari
+            default -> throw new IllegalArgumentException(String.format(
+                    "Браузер '%s' не поддерживается. Выберите chrome, firefox, edge или safari.", browserName));
+        };
     }
 
     @BeforeEach
@@ -77,31 +50,27 @@ public abstract class BaseTest {
         String windowSize = getEnv("WINDOW_SIZE", "full");
         boolean isHeadless = Boolean.parseBoolean(getEnv("HEADLESS", "false"));
 
-        // Новый контекст на каждый тест: чистые cookies, storage и вкладки,
-        // поэтому ручная изоляция состояния браузера (isolateBrowserState) не нужна
+        playwright = Playwright.create();
+        browser = launchBrowser(playwright, isHeadless);
+
         Browser.NewContextOptions contextOptions = new Browser.NewContextOptions();
         applyWindowSize(contextOptions, windowSize, isHeadless);
 
         context = browser.newContext(contextOptions);
         context.setDefaultNavigationTimeout(30_000);
-
         page = context.newPage();
     }
 
     @AfterEach
     void tearDown() {
-        if (context != null) {
-            context.close();
-        }
-    }
-
-    @AfterAll
-    static void closeBrowser() {
-        if (browser != null) {
-            browser.close();
-        }
-        if (playwright != null) {
-            playwright.close();
+        try {
+            if (context != null) context.close();
+        } finally {
+            try {
+                if (browser != null) browser.close();
+            } finally {
+                if (playwright != null) playwright.close();
+            }
         }
     }
 
@@ -147,8 +116,9 @@ public abstract class BaseTest {
 
     private void maximize(Browser.NewContextOptions options, boolean isHeadless) {
         if (isHeadless) {
-            // В headless нет окна, которое можно развернуть, поэтому задаём размер явно
             options.setViewportSize(1920, 1080);
+        } else {
+            options.setViewportSize(null);
         }
     }
 
