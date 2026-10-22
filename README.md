@@ -1,4 +1,4 @@
-# DEMOQA test Selenium (Java)
+# DEMOQA tests (Java)
 
 ## Описание
 
@@ -10,6 +10,7 @@
 
 - Java
 - Selenium
+- Playwright
 - junit
 - Allure
 - Maven
@@ -44,23 +45,11 @@ mvn clean test -DHEADLESS=false
 mvn clean test -DsuiteXmlFile=testng.xml
 ```
 
-### TestNG отчёт
-
-Пример запуска Selenium тестов (TestNG)
-
-![TestsSelenium.png](img/TestsSelenium.png)
-
-Отчёт TestNG
-
-![TestsngReportSelenium.png](img/TestsngReportSelenium.png)
-
 ### Allure отчёт
 
-Пример отчёта по Selenium тестам
+Пример отчёта по тестам
 
 ![AllureReportSeleniumAllTests.png](img/AllureReportSeleniumAllTests.png)
-
-![AllureReportSeleniumOneTest.png](img/AllureReportSeleniumOneTest.png)
 
 Открыть отчёт
 
@@ -71,3 +60,4 @@ allure serve target/allure-results
 ## TODO
 
 - [ ] Поправить faker
+- [ ] Добавить env в описание allure
