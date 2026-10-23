@@ -1,13 +1,8 @@
 package ui.demoqa.playwright.tests.elements;
 
 import __common.EndpointsDemoqa;
-import io.qameta.allure.Allure;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
-import net.datafaker.Faker;
-import org.junit.jupiter.api.BeforeEach;
+import __common.TestFaker;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
@@ -25,28 +20,22 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Story("Страница Web Tables")
 public class WebTableTest extends BaseTest {
     private static final String URL = dotenv.get("DEMOQA_HOST") + EndpointsDemoqa.WEB_TABLES.getUrl();
-    private Faker fake;
-
-    @BeforeEach
-    public void initFaker() {
-        this.fake = new Faker();
-    }
 
     private Person createPerson() {
-        String firstName = fake.name().firstName();
-        String lastName = fake.name().lastName();
+        String firstName = TestFaker.get().name().firstName();
+        String lastName = TestFaker.get().name().lastName();
 
         return new Person(
-                firstName + " " + lastName + " " + fake.name().fullName(),
+                firstName + " " + lastName + " " + TestFaker.get().name().fullName(),
                 firstName,
                 lastName,
-                fake.number().numberBetween(10, 80),
-                fake.number().numberBetween(10000, 100000),
-                fake.job().field(),
-                fake.internet().emailAddress(),
-                fake.address().fullAddress(),
-                fake.address().fullAddress(),
-                fake.phoneNumber().cellPhone()
+                TestFaker.get().number().numberBetween(10, 80),
+                TestFaker.get().number().numberBetween(10000, 100000),
+                TestFaker.get().job().field(),
+                TestFaker.get().internet().emailAddress(),
+                TestFaker.get().address().fullAddress(),
+                TestFaker.get().address().fullAddress(),
+                TestFaker.get().phoneNumber().cellPhone()
         );
     }
 

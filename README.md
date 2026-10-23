@@ -56,8 +56,3 @@ mvn clean test -DsuiteXmlFile=testng.xml
 ```bash
 allure serve target/allure-results
 ```
-
-## TODO
-
-- [ ] Поправить faker
-- [ ] Добавить env в описание allure

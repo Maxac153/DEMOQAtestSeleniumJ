@@ -35,7 +35,7 @@ public class LinksTest extends BaseTest {
         Allure.step("Проверить title новой вкладки", () -> assertEquals(expectedTitle, result,
                 String.format("Ожидался title '%s', но получен '%s'", expectedTitle, result)));
     }
-    
+
     private static Stream<Arguments> provideNewTabTestData() {
         return Stream.of(
                 arguments("SIMPLE_LINK_LINK", Links.SIMPLE_LINK_LINK, Links.SIMPLE_LINK_LINK.getValue()),

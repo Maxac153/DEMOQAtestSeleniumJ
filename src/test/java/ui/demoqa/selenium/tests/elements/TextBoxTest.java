@@ -1,8 +1,8 @@
 package ui.demoqa.selenium.tests.elements;
 
 import __common.EndpointsDemoqa;
+import __common.TestFaker;
 import io.qameta.allure.*;
-import net.datafaker.Faker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -17,8 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Story("Страница Text Box")
 public class TextBoxTest extends BaseTest {
     private static final String URL = dotenv.get("DEMOQA_HOST") + EndpointsDemoqa.TEXT_BOX.getUrl();
-    // TODO убрать Faker в BaseTest
-    private static final Faker FAKER = new Faker();
 
     @Test
     @DisplayName("Форма Text Box отображает введённые данные")
@@ -26,15 +24,15 @@ public class TextBoxTest extends BaseTest {
     @Story("Отправка формы Text Box")
     @Description("Проверка, что после отправки формы введённое имя отображается в блоке вывода")
     public void testTextBoxShowsSubmittedData() {
-        String name = FAKER.name().fullName();
+        String name = TestFaker.get().name().fullName();
 
         TextBoxPage textBoxPage = new TextBoxPage(driver, URL);
         textBoxPage.open();
         textBoxPage.fill(
                 name,
-                FAKER.internet().emailAddress(),
-                FAKER.address().fullAddress(),
-                FAKER.address().fullAddress()
+                TestFaker.get().internet().emailAddress(),
+                TestFaker.get().address().fullAddress(),
+                TestFaker.get().address().fullAddress()
         );
         textBoxPage.submit();
 
