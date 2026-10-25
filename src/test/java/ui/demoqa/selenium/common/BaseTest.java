@@ -1,5 +1,6 @@
 package ui.demoqa.selenium.common;
 
+import __common.BaseCommonTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.AfterEach;
@@ -15,24 +16,13 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
-import java.io.IOException;
-import java.io.Writer;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.stream.Stream;
 
 @ExtendWith(AllureReportExtension.class)
-public abstract class BaseTest {
+public abstract class BaseTest extends BaseCommonTest {
     protected WebDriver driver;
-    private static final AtomicBoolean ENV_WRITTEN = new AtomicBoolean(false);
 
     // 1. Инициализируем Dotenv с мягкими настройками (не падает, если файла .env нет)
     protected static final Dotenv dotenv = Dotenv.configure()
@@ -112,74 +102,6 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
-        writeAllureEnvironment(windowSize, isHeadless);
-    }
-
-    private void writeAllureEnvironment(String windowSize, boolean isHeadless) {
-        if (!ENV_WRITTEN.compareAndSet(false, true)) return;
-
-        try {
-            Capabilities caps = ((HasCapabilities) driver).getCapabilities();
-
-            Properties env = new Properties();
-            env.setProperty("System execution", System.getProperty("os.name") + " "
-                    + System.getProperty("os.version") + " " + System.getProperty("os.arch"));
-            env.setProperty("Environment", getEnv("ENVIRONMENT", "QA"));
-            env.setProperty("BROWSER", getEnv("BROWSER", "chrome"));
-            env.setProperty("BROWSER_VERSION", orUnknown(caps.getBrowserVersion()));
-            env.setProperty("HEADLESS", String.valueOf(isHeadless));
-            env.setProperty("DEMOQA_HOST", getEnv("DEMOQA_HOST", "unknown"));
-            env.setProperty("WINDOW_SIZE", windowSize);
-            env.setProperty("SELENIUM_VERSION", orUnknown(new BuildInfo().getReleaseLabel()));
-            env.setProperty("JUNIT_VERSION", versionOf(org.junit.jupiter.api.Test.class));
-            env.setProperty("ALLURE_VERSION", versionOf(io.qameta.allure.Allure.class));
-            env.setProperty("OS_SYSTEM", System.getProperty("os.name"));
-            env.setProperty("OS_VERSION", System.getProperty("os.version"));
-            env.setProperty("MACHINE", System.getProperty("os.arch"));
-            env.setProperty("JAVA_VERSION", System.getProperty("java.version"));
-
-            Path resultsDir = Paths.get(System.getProperty("allure.results.directory", "target/allure-results"));
-            Path reportHistoryDir = resultsDir.resolveSibling("allure-report").resolve("history");
-            Path resultsHistoryDir = resultsDir.resolve("history");
-
-            Files.createDirectories(resultsDir);
-
-            // Перенос истории прошлого отчёта для трендов
-            if (Files.isDirectory(reportHistoryDir)) {
-                copyDirectory(reportHistoryDir, resultsHistoryDir);
-            }
-
-            // Properties.store сам экранирует пробелы в ключах и обратные слеши в значениях
-            try (Writer writer = Files.newBufferedWriter(
-                    resultsDir.resolve("environment.properties"), StandardCharsets.UTF_8)) {
-                env.store(writer, null);
-            }
-        } catch (Exception e) {
-            // Отчёт об окружении не должен ронять тесты
-        }
-    }
-
-    private static String orUnknown(String value) {
-        return (value == null || value.isBlank()) ? "unknown" : value;
-    }
-
-    private static String versionOf(Class<?> clazz) {
-        Package pkg = clazz.getPackage();
-        return orUnknown(pkg == null ? null : pkg.getImplementationVersion());
-    }
-
-    private static void copyDirectory(Path source, Path target) throws IOException {
-        try (Stream<Path> paths = Files.walk(source)) {
-            for (Path path : (Iterable<Path>) paths::iterator) {
-                Path dest = target.resolve(source.relativize(path).toString());
-                if (Files.isDirectory(path)) {
-                    Files.createDirectories(dest);
-                } else {
-                    Files.createDirectories(dest.getParent());
-                    Files.copy(path, dest, StandardCopyOption.REPLACE_EXISTING);
-                }
-            }
-        }
     }
 
     @AfterEach
@@ -248,7 +170,7 @@ public abstract class BaseTest {
     private void closeExtraWindows(WebDriver browser) {
         try {
             java.util.Set<String> handles = browser.getWindowHandles();
-            if (handles == null || handles.size() <= 1) return;
+            if (handles.size() <= 1) return;
 
             String[] handleArray = handles.toArray(new String[0]);
             for (int i = 1; i < handleArray.length; i++) {
